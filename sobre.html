@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre Nós - Coffee Hearth</title>
-    <link rel="shortcut icon" href="img/Logotipo do Coffee Hearth.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap"
-        rel="stylesheet">
-    <style>
-        :root {
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sobre Nós - Coffee Hearth</title>
+        <link rel="shortcut icon" href="img/Logotipo do Coffee Hearth.png" type="image/x-icon">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap"
+            rel="stylesheet">
+        <style>
+                :root {
             --font-titulo: 'Playfair Display', serif;
             --font-texto: 'Source Sans Pro', sans-serif;
             --font-ui: 'Inter', sans-serif;
@@ -27,7 +27,7 @@
             --transition: all 0.3s ease;
         }
 
-        html {
+        html{
             scroll-behavior: smooth;
         }
 
@@ -66,7 +66,6 @@
         label {
             font-family: var(--font-ui);
         }
-
         .container {
             width: 90%;
             max-width: 1200px;
@@ -74,7 +73,7 @@
             padding: 0 15px;
         }
 
-        .about-image {
+        .about-image{
             margin-bottom: 25px;
         }
 
@@ -201,14 +200,14 @@
             font-size: 1.2rem;
         }
 
-        .logo-coffee {
+        .logo-coffee{
             width: 70px;
             height: 70px;
             margin-bottom: 10px;
-            transition: all 0.5s ease;
+            transition:all 0.5s ease;
         }
 
-        .logo-coffee:hover {
+        .logo-coffee:hover{
             transform: scale(1.08);
         }
 
@@ -476,7 +475,7 @@
             font-size: 1.3rem;
         }
 
-        .logo {
+       .logo {
             display: flex;
             align-items: center;
             margin-bottom: 20px;
@@ -561,633 +560,398 @@
             transform: translateY(0);
         }
 
-        /* ===== RESPONSIVIDADE AVANÇADA ===== */
-
-        /* Tablet (768px - 1024px) */
-        @media (max-width: 1024px) {
-            .container {
-                width: 95%;
-                padding: 0 20px;
-            }
-
-            /* Header Tablet */
-            .header-content {
-                padding: 12px 0;
-            }
-
-            .nav-menu li {
-                margin-left: 20px;
-            }
-
-            /* Grid ajustável */
-            .menu-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 25px;
-            }
-
+        /* Responsive Styles */
+        @media (max-width: 992px) {
             .footer-content {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 40px;
             }
 
-            /* Textos tablet */
-            h1 {
-                font-size: 2.4rem;
+            .about-content {
+                flex-direction: column;
             }
 
-            h2 {
-                font-size: 2rem;
+            .values-grid,
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
-        /* Mobile Grande (576px - 768px) */
         @media (max-width: 768px) {
-
-            /* Menu Mobile */
             .hamburger {
                 display: block;
-                z-index: 1000;
             }
-
+            
             .nav-menu {
                 position: fixed;
-                top: 0;
-                right: -100%;
-                width: 280px;
-                height: 100dvh;
-                background: var(--dark-brown);
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: var(--dark-brown);
                 flex-direction: column;
-                align-items: flex-start;
-                padding: 80px 30px 30px;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
                 transition: var(--transition);
-                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
             }
-
+            
             .nav-menu.active {
-                right: 0;
+                left: 0;
             }
-
+            
             .nav-menu li {
-                margin: 0 0 20px 0;
-                width: 100%;
+                margin: 15px 0;
             }
 
-            .nav-menu a {
-                padding: 12px 0;
-                font-size: 1.1rem;
-                border-bottom: 1px solid var(--medium-brown);
-                width: 100%;
-            }
-
-            /* Layout Mobile */
-            .menu-grid {
+            .values-grid,
+            .team-grid,
+            .stats-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
             }
 
-            .about-container {
-                flex-direction: column;
-                gap: 30px;
-            }
-
-            .about-image,
-            .about-content {
-                width: 100%;
-            }
-
-            /* Carrinho Mobile */
-            .cart-sidebar {
-                width: 100dvw;
-                right: -100vw;
-            }
-
-            .cart-item {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .cart-item-image {
-                margin-right: 0;
-                margin-bottom: 10px;
-            }
-
-            /* Footer Mobile */
-            .footer-content {
+            .about-features {
                 grid-template-columns: 1fr;
-                gap: 30px;
-                text-align: center;
-            }
-
-            .footer-column .logo {
-                justify-content: center;
-            }
-
-            .social-links {
-                justify-content: center;
             }
         }
 
-        /* Mobile Pequeno (até 576px) */
         @media (max-width: 576px) {
-            .container {
-                width: 100%;
-                padding: 0 15px;
-            }
-
-            /* Tipografia Mobile */
             h1 {
-                font-size: 2rem;
-                line-height: 1.3;
+                font-size: 2.2rem;
             }
-
+            
             h2 {
-                font-size: 1.7rem;
-            }
-
-            h3 {
-                font-size: 1.3rem;
-            }
-
-            .section-title {
-                margin-bottom: 30px;
-            }
-
-            /* Espaçamentos Mobile */
-            section {
-                padding: 50px 0;
-            }
-
-            .menu-page {
-                padding-top: 80px;
-            }
-
-            /* Botões Mobile */
-            .btn {
-                padding: 14px 25px;
-                font-size: 0.95rem;
-                width: 100%;
-                text-align: center;
-            }
-
-            /* Cards Mobile */
-            .menu-item {
-                margin: 0 10px;
-            }
-
-            .menu-item-content {
-                padding: 15px;
-            }
-
-            /* Formulários Mobile */
-            .form-row {
-                flex-direction: column;
-                gap: 0;
-            }
-
-            .form-group {
-                margin-bottom: 15px;
-            }
-
-            input,
-            select,
-            textarea {
-                font-size: 16px;
-                /* Evita zoom no iOS */
-            }
-
-            /* Carousel Mobile */
-            .carousel-container {
-                height: 60vh;
-            }
-
-            .slide-content h2 {
                 font-size: 1.8rem;
             }
 
-            .slide-content p {
-                font-size: 1rem;
-            }
-        }
-
-        /* Mobile Muito Pequeno (até 375px) */
-        @media (max-width: 375px) {
-            .logo h1 {
-                font-size: 1.4rem;
+            .footer-content {
+                grid-template-columns: 1fr;
             }
 
-            .logo-img {
-                width: 50px;
-                height: 50px;
-            }
-
-            .menu-item-image {
-                height: 180px;
-            }
-
-            .cart-sidebar {
-                padding: 15px;
-            }
-
-            .cart-actions {
-                gap: 8px;
-            }
-
-            .cart-actions .btn {
-                padding: 12px 15px;
-                font-size: 0.9rem;
-            }
-        }
-
-        /* ===== MELHORIAS ESPECÍFICAS ===== */
-
-        /* Orientação Landscape Mobile */
-        @media (max-height: 500px) and (orientation: landscape) {
-            .nav-menu {
-                padding-top: 60px;
-                overflow-y: auto;
-            }
-
-            .nav-menu li {
-                margin-bottom: 15px;
-            }
-
-            .carousel-container {
-                height: 80vh;
-            }
-        }
-
-        /* Telas Grandes (acima de 1440px) */
-        @media (min-width: 1440px) {
-            .container {
-                max-width: 1400px;
-            }
-
-            .menu-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-
-        /* ===== ACESSIBILIDADE TOUCH ===== */
-
-        /* Melhoria para touch devices */
-        @media (hover: none) and (pointer: coarse) {
-
-            .btn,
-            .menu-item,
-            .category-btn {
-                min-height: 44px;
-                /* Tamanho mínimo para touch */
-            }
-
-            .nav-menu a {
-                padding: 15px 0;
-                /* Maior área de toque */
-            }
-
-            .quantity-btn {
-                width: 44px;
-                height: 44px;
-            }
-        }
-
-        /* ===== PERFORMANCE MOBILE ===== */
-
-        /* Otimiza animações para mobile */
-        @media (prefers-reduced-motion: reduce) {
-
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-
-        /* ===== UTILITÁRIOS RESPONSIVOS ===== */
-
-        .text-center-mobile {
-            text-align: center;
-        }
-
-        .hide-on-mobile {
-            display: block;
-        }
-
-        .show-on-mobile {
-            display: none;
-        }
-
-        @media (max-width: 768px) {
-            .hide-on-mobile {
-                display: none;
-            }
-
-            .show-on-mobile {
-                display: block;
-            }
-
-            .text-center-mobile {
-                text-align: center;
+            .stats-section {
+                padding: 30px 20px;
             }
         }
     </style>
-</head>
-
-<body>
-    <!-- HEADER -->
-    <header id="header">
-        <div class="container">
-            <div class="header-content">
-                <a href="index.html" class="logo">
-                    <div class="logo-img1">
-                        <img class="logo-coffee" src="img/Logotipo do Coffee Hearth.png" alt="logo-img">
-                    </div>
-                </a>
-
-                <div class="hamburger" id="hamburger">
-                    <i class="fas fa-bars"></i>
-                </div>
-
-                <ul class="nav-menu" id="nav-menu">
-                    <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Início</a></li>
-                    <li><a href="sobre.html" class="nav-link active"><i class="fas fa-info-circle"></i>
-                            Sobre</a></li>
-                    <li><a href="cardapio.html" class="nav-link"><i class="fas fa-coffee"></i> Cardápio</a></li>
-                    <li><a href="eventos.html" class="nav-link"><i class="fas fa-calendar-alt"></i>
-                            Eventos</a></li>
-                    <li><a href="avaliacoes.html" class="nav-link"><i class="fas fa-star"></i> Avaliações</a></li>
-                    <li><a href="contato.html" class="nav-link"><i class="fas fa-envelope"></i>
-                            Contato</a></li>
-                    <li>
-                        <a href="#" class="nav-link cart-icon" id="cart-toggle">
-                            <i class="fas fa-shopping-cart"></i>
-                            <span class="cart-count">0</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </header>
-
-    <!-- CONTEÚDO DA PÁGINA SOBRE -->
-    <section class="about-page">
-        <div class="container">
-            <div class="page-header">
-                <h1>Nossa História</h1>
-                <p class="page-description">Conheça a trajetória da
-                    Coffee Hearth, nossa paixão pelo café e o
-                    compromisso com a excelência que nos move há mais de uma
-                    década.</p>
-            </div>
-
-            <div class="about-content">
-                <div class="about-text fade-in">
-                    <p>Fundada em 2012 por dois amigos apaixonados por café,
-                        a Coffee Hearth nasceu do sonho de criar um
-                        espaço onde as pessoas pudessem desfrutar de cafés
-                        especiais em um ambiente acolhedor e inspirador.</p>
-
-                    <h3>Nossa Missão</h3>
-                    <p>Oferecer a melhor experiência em café, unindo
-                        qualidade excepcional, atendimento personalizado e
-                        um ambiente que promova conexões genuínas entre as
-                        pessoas.</p>
-
-                    <h3>Nossa Filosofia</h3>
-                    <p>Acreditamos que o café vai além de uma simples bebida
-                        - é um momento de pausa, uma desculpa para
-                        encontros, uma fonte de inspiração. Por isso,
-                        dedicamos atenção especial a cada etapa do processo,
-                        desde a seleção dos grãos até o preparo final.</p>
-
-                    <div class="about-features">
-                        <div class="feature">
-                            <i class="fas fa-seedling"></i>
-                            <div>
-                                <h4>Sustentabilidade</h4>
-                                <p>Trabalhamos com produtores que praticam
-                                    agricultura sustentável e pagam preços
-                                    justos pelos grãos.</p>
-                            </div>
+    </head>
+    <body>
+        <!-- HEADER -->
+        <header id="header">
+            <div class="container">
+                <div class="header-content">
+                    <a href="index.html" class="logo">
+                        <div class="logo-img1">
+                            <img class="logo-coffee" src="img/Logotipo do Coffee Hearth.png" alt="logo-img">
                         </div>
-                        <div class="feature">
-                            <i class="fas fa-heart"></i>
-                            <div>
-                                <h4>Paixão</h4>
-                                <p>Cada xícara é preparada com dedicação e
-                                    amor, refletindo nossa paixão pelo café
-                                    de qualidade.</p>
-                            </div>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-users"></i>
-                            <div>
-                                <h4>Comunidade</h4>
-                                <p>Valorizamos as conexões humanas e criamos
-                                    um espaço onde todos se sintam
-                                    bem-vindos.</p>
-                            </div>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-award"></i>
-                            <div>
-                                <h4>Excelência</h4>
-                                <p>Buscamos constantemente a perfeição em
-                                    cada detalhe, do grão à xícara.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <img src="https://images.pexels.com/photos/2253643/pexels-photo-2253643.jpeg" alt="Nossa equipe">
-                </div>
-            </div>
+                    </a>
 
-            <div class="values-grid">
-                <div class="value-item fade-in">
-                    <i class="fas fa-coffee"></i>
-                    <h4>Qualidade Superior</h4>
-                    <p>Selecionamos apenas os melhores grãos de regiões
-                        produtoras especiais, com torra artesanal que realça
-                        sabores únicos.</p>
-                </div>
-                <div class="value-item fade-in">
-                    <i class="fas fa-handshake"></i>
-                    <h4>Atendimento Personalizado</h4>
-                    <p>Nossa equipe é treinada para oferecer uma experiência
-                        única e memorável a cada cliente.</p>
-                </div>
-                <div class="value-item fade-in">
-                    <i class="fas fa-leaf"></i>
-                    <h4>Compromisso Ambiental</h4>
-                    <p>Utilizamos embalagens biodegradáveis e apoiamos
-                        práticas sustentáveis em toda nossa cadeia.</p>
-                </div>
-                <div class="value-item fade-in">
-                    <i class="fas fa-gem"></i>
-                    <h4>Excelência em Detalhes</h4>
-                    <p>Da apresentação ao sabor, cada aspecto é
-                        cuidadosamente planejado para sua satisfação.</p>
-                </div>
-            </div>
+                    <div class="hamburger" id="hamburger">
+                        <i class="fas fa-bars"></i>
+                    </div>
 
-            <div class="stats-section fade-in">
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <h3>10+</h3>
-                        <p>Anos de Experiência</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>5000+</h3>
-                        <p>Clientes Satisfeitos</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>15+</h3>
-                        <p>Tipos de Café Especial</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>50+</h3>
-                        <p>Eventos Realizados</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="team-section">
-                <h2>Nossa Equipe</h2>
-                <div class="team-grid">
-                    <div class="team-member fade-in">
-                        <div class="member-photo">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos Silva">
-                        </div>
-                        <h4>Carlos Silva</h4>
-                        <p>Fundador & Barista Mestre</p>
-                        <p>Com 15 anos de experiência, Carlos é especialista
-                            em torra e blends exclusivos. Sua paixão pelo
-                            café o levou a viajar por regiões produtoras ao
-                            redor do mundo.</p>
-                    </div>
-                    <div class="team-member fade-in">
-                        <div class="member-photo">
-                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Ana Costa">
-                        </div>
-                        <h4>Ana Costa</h4>
-                        <p>Co-fundadora & Sommelier de Café</p>
-                        <p>Ana viaja pelo mundo em busca dos melhores grãos
-                            para nossa cafeteria. Com formação em
-                            gastronomia, ela cria combinações únicas de
-                            sabores.</p>
-                    </div>
-                    <div class="team-member fade-in">
-                        <div class="member-photo">
-                            <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Roberto Lima">
-                        </div>
-                        <h4>Roberto Lima</h4>
-                        <p>Chef de Confeitaria</p>
-                        <p>Responsável por criar nossas deliciosas
-                            sobremesas e acompanhamentos. Com formação na
-                            França, Roberto traz técnicas europeias com
-                            toque brasileiro.</p>
-                    </div>
-                    <div class="team-member fade-in">
-                        <div class="member-photo">
-                            <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Juliana Santos">
-                        </div>
-                        <h4>Juliana Santos</h4>
-                        <p>Gerente de Experiência</p>
-                        <p>Juliana garante que cada visita à nossa cafeteria
-                            seja memorável. Especialista em atendimento e
-                            organização de eventos especiais.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin-top: 50px;">
-                <a href="contato.html" class="btn btn-gold">Entre em
-                    Contato</a>
-                <a href="cardapio.html" class="btn" style="margin-left: 15px;">Conheça Nosso Cardápio</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <div class="logo">
-                        <div class="logo-img"><img class="logo-coffee" src="img/Logotipo do Coffee Hearth.png"
-                                alt="logo"></div>
-                        <h2 class="footer-logo">Coffee Hearth</h2>
-                    </div>
-                    <p>Há mais de 10 anos servindo os melhores cafés
-                        especiais em um ambiente aconchegante e
-                        acolhedor.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
-
-                <div class="footer-column">
-                    <h3>Links Rápidos</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html"><i class="fas fa-home"></i>
-                                Início</a></li>
-                        <li><a href="sobre.html"><i class="fas fa-info-circle"></i> Sobre
-                                Nós</a></li>
-                        <li><a href="cardapio.html"><i class="fas fa-coffee"></i>
-                                Cardápio</a></li>
-                        <li><a href="eventos.html"><i class="fas fa-calendar-alt"></i>
+                    <ul class="nav-menu" id="nav-menu">
+                        <li><a href="index.html" class="nav-link"><i
+                                    class="fas fa-home"></i> Início</a></li>
+                        <li><a href="sobre.html" class="nav-link active"><i
+                                    class="fas fa-info-circle"></i>
+                                Sobre</a></li>
+                        <li><a href="cardapio.html" class="nav-link"><i
+                                    class="fas fa-coffee"></i> Cardápio</a></li>
+                        <li><a href="eventos.html" class="nav-link"><i
+                                    class="fas fa-calendar-alt"></i>
                                 Eventos</a></li>
-                        <li><a href="avaliacoes.html"><i class="fas fa-star"></i>
-                                Avaliações</a></li>
+                        <li><a href="avaliacoes.html" class="nav-link"><i
+                                    class="fas fa-star"></i> Avaliações</a></li>
+                        <li><a href="contato.html" class="nav-link"><i
+                                    class="fas fa-envelope"></i>
+                                Contato</a></li>
+                        <li>
+                            <a href="#" class="nav-link cart-icon"
+                                id="cart-toggle">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span class="cart-count">0</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
+            </div>
+        </header>
 
-                <div class="footer-column">
-                    <h3>Cardápio</h3>
-                    <ul class="footer-links">
-                        <li><a href="cardapio.html"><i class="fas fa-mug-hot"></i> Cafés
-                                Especiais</a></li>
-                        <li><a href="cardapio.html"><i class="fas fa-beer"></i>
-                                Bebidas</a></li>
-                        <li><a href="cardapio.html"><i class="fas fa-cookie"></i>
-                                Doces</a></li>
-                        <li><a href="cardapio.html"><i class="fas fa-bread-slice"></i>
-                                Salgados</a></li>
-                    </ul>
+        <!-- CONTEÚDO DA PÁGINA SOBRE -->
+        <section class="about-page">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Nossa História</h1>
+                    <p class="page-description">Conheça a trajetória da
+                        Coffee Hearth, nossa paixão pelo café e o
+                        compromisso com a excelência que nos move há mais de uma
+                        década.</p>
                 </div>
 
-                <div class="footer-column">
-                    <h3>Contato</h3>
-                    <div class="contact-detail">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <p>Rua das Flores, 123 - Centro, São Paulo - SP</p>
+                <div class="about-content">
+                    <div class="about-text fade-in">
+                        <p>Fundada em 2012 por dois amigos apaixonados por café,
+                            a Coffee Hearth nasceu do sonho de criar um
+                            espaço onde as pessoas pudessem desfrutar de cafés
+                            especiais em um ambiente acolhedor e inspirador.</p>
+
+                        <h3>Nossa Missão</h3>
+                        <p>Oferecer a melhor experiência em café, unindo
+                            qualidade excepcional, atendimento personalizado e
+                            um ambiente que promova conexões genuínas entre as
+                            pessoas.</p>
+
+                        <h3>Nossa Filosofia</h3>
+                        <p>Acreditamos que o café vai além de uma simples bebida
+                            - é um momento de pausa, uma desculpa para
+                            encontros, uma fonte de inspiração. Por isso,
+                            dedicamos atenção especial a cada etapa do processo,
+                            desde a seleção dos grãos até o preparo final.</p>
+
+                        <div class="about-features">
+                            <div class="feature">
+                                <i class="fas fa-seedling"></i>
+                                <div>
+                                    <h4>Sustentabilidade</h4>
+                                    <p>Trabalhamos com produtores que praticam
+                                        agricultura sustentável e pagam preços
+                                        justos pelos grãos.</p>
+                                </div>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-heart"></i>
+                                <div>
+                                    <h4>Paixão</h4>
+                                    <p>Cada xícara é preparada com dedicação e
+                                        amor, refletindo nossa paixão pelo café
+                                        de qualidade.</p>
+                                </div>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-users"></i>
+                                <div>
+                                    <h4>Comunidade</h4>
+                                    <p>Valorizamos as conexões humanas e criamos
+                                        um espaço onde todos se sintam
+                                        bem-vindos.</p>
+                                </div>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-award"></i>
+                                <div>
+                                    <h4>Excelência</h4>
+                                    <p>Buscamos constantemente a perfeição em
+                                        cada detalhe, do grão à xícara.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="contact-detail">
-                        <i class="fas fa-phone"></i>
-                        <p>(11) 3456-7890</p>
-                    </div>
-                    <div class="contact-detail">
-                        <i class="fas fa-envelope"></i>
-                        <p>coffeehearth@gmail.com</p>
+                    <div class="about-image">
+                        <img
+                            src="https://images.pexels.com/photos/2253643/pexels-photo-2253643.jpeg"
+                            alt="Nossa equipe">
                     </div>
                 </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2023 Coffee Hearth. Todos os direitos
-                    reservados.</p>
-            </div>
-        </div>
-    </footer>
 
-    <script>
+                <div class="values-grid">
+                    <div class="value-item fade-in">
+                        <i class="fas fa-coffee"></i>
+                        <h4>Qualidade Superior</h4>
+                        <p>Selecionamos apenas os melhores grãos de regiões
+                            produtoras especiais, com torra artesanal que realça
+                            sabores únicos.</p>
+                    </div>
+                    <div class="value-item fade-in">
+                        <i class="fas fa-handshake"></i>
+                        <h4>Atendimento Personalizado</h4>
+                        <p>Nossa equipe é treinada para oferecer uma experiência
+                            única e memorável a cada cliente.</p>
+                    </div>
+                    <div class="value-item fade-in">
+                        <i class="fas fa-leaf"></i>
+                        <h4>Compromisso Ambiental</h4>
+                        <p>Utilizamos embalagens biodegradáveis e apoiamos
+                            práticas sustentáveis em toda nossa cadeia.</p>
+                    </div>
+                    <div class="value-item fade-in">
+                        <i class="fas fa-gem"></i>
+                        <h4>Excelência em Detalhes</h4>
+                        <p>Da apresentação ao sabor, cada aspecto é
+                            cuidadosamente planejado para sua satisfação.</p>
+                    </div>
+                </div>
+
+                <div class="stats-section fade-in">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <h3>10+</h3>
+                            <p>Anos de Experiência</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>5000+</h3>
+                            <p>Clientes Satisfeitos</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>15+</h3>
+                            <p>Tipos de Café Especial</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>50+</h3>
+                            <p>Eventos Realizados</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-section">
+                    <h2>Nossa Equipe</h2>
+                    <div class="team-grid">
+                        <div class="team-member fade-in">
+                            <div class="member-photo">
+                                <img
+                                    src="https://randomuser.me/api/portraits/men/32.jpg"
+                                    alt="Carlos Silva">
+                            </div>
+                            <h4>Carlos Silva</h4>
+                            <p>Fundador & Barista Mestre</p>
+                            <p>Com 15 anos de experiência, Carlos é especialista
+                                em torra e blends exclusivos. Sua paixão pelo
+                                café o levou a viajar por regiões produtoras ao
+                                redor do mundo.</p>
+                        </div>
+                        <div class="team-member fade-in">
+                            <div class="member-photo">
+                                <img
+                                    src="https://randomuser.me/api/portraits/women/44.jpg"
+                                    alt="Ana Costa">
+                            </div>
+                            <h4>Ana Costa</h4>
+                            <p>Co-fundadora & Sommelier de Café</p>
+                            <p>Ana viaja pelo mundo em busca dos melhores grãos
+                                para nossa cafeteria. Com formação em
+                                gastronomia, ela cria combinações únicas de
+                                sabores.</p>
+                        </div>
+                        <div class="team-member fade-in">
+                            <div class="member-photo">
+                                <img
+                                    src="https://randomuser.me/api/portraits/men/67.jpg"
+                                    alt="Roberto Lima">
+                            </div>
+                            <h4>Roberto Lima</h4>
+                            <p>Chef de Confeitaria</p>
+                            <p>Responsável por criar nossas deliciosas
+                                sobremesas e acompanhamentos. Com formação na
+                                França, Roberto traz técnicas europeias com
+                                toque brasileiro.</p>
+                        </div>
+                        <div class="team-member fade-in">
+                            <div class="member-photo">
+                                <img
+                                    src="https://randomuser.me/api/portraits/women/28.jpg"
+                                    alt="Juliana Santos">
+                            </div>
+                            <h4>Juliana Santos</h4>
+                            <p>Gerente de Experiência</p>
+                            <p>Juliana garante que cada visita à nossa cafeteria
+                                seja memorável. Especialista em atendimento e
+                                organização de eventos especiais.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 50px;">
+                    <a href="contato.html" class="btn btn-gold">Entre em
+                        Contato</a>
+                    <a href="cardapio.html" class="btn"
+                        style="margin-left: 15px;">Conheça Nosso Cardápio</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-column">
+                            <div class="logo">
+                                <div class="logo-img"><img class="logo-coffee" src="img/Logotipo do Coffee Hearth.png" alt="logo"></div>
+                                <h2 class="footer-logo">Coffee Hearth</h2>
+                            </div>
+                        <p>Há mais de 10 anos servindo os melhores cafés
+                            especiais em um ambiente aconchegante e
+                            acolhedor.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="footer-column">
+                        <h3>Links Rápidos</h3>
+                        <ul class="footer-links">
+                            <li><a href="index.html"><i class="fas fa-home"></i>
+                                    Início</a></li>
+                            <li><a href="sobre.html"><i
+                                        class="fas fa-info-circle"></i> Sobre
+                                    Nós</a></li>
+                            <li><a href="cardapio.html"><i
+                                        class="fas fa-coffee"></i>
+                                    Cardápio</a></li>
+                            <li><a href="eventos.html"><i
+                                        class="fas fa-calendar-alt"></i>
+                                    Eventos</a></li>
+                            <li><a href="avaliacoes.html"><i
+                                        class="fas fa-star"></i>
+                                    Avaliações</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h3>Cardápio</h3>
+                        <ul class="footer-links">
+                            <li><a href="cardapio.html"><i
+                                        class="fas fa-mug-hot"></i> Cafés
+                                    Especiais</a></li>
+                            <li><a href="cardapio.html"><i
+                                        class="fas fa-beer"></i>
+                                    Bebidas</a></li>
+                            <li><a href="cardapio.html"><i
+                                        class="fas fa-cookie"></i>
+                                    Doces</a></li>
+                            <li><a href="cardapio.html"><i
+                                        class="fas fa-bread-slice"></i>
+                                    Salgados</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h3>Contato</h3>
+                        <div class="contact-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>Rua das Flores, 123 - Centro, São Paulo - SP</p>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-phone"></i>
+                            <p>(11) 3456-7890</p>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-envelope"></i>
+                            <p>coffeehearth@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2023 Coffee Hearth. Todos os direitos
+                        reservados.</p>
+                </div>
+            </div>
+        </footer>
+
+        <script>
         // ===== HEADER SCROLL =====
         const header = document.getElementById('header');
-
+        
         window.addEventListener('scroll', () => {
             if (window.scrollY > 100) {
                 header.classList.add('scrolled');
@@ -1199,11 +963,11 @@
         // ===== MENU HAMBURGUER =====
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('nav-menu');
-
+        
         hamburger.addEventListener('click', () => {
             navMenu.classList.toggle('active');
-            hamburger.innerHTML = navMenu.classList.contains('active')
-                ? '<i class="fas fa-times"></i>'
+            hamburger.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
                 : '<i class="fas fa-bars"></i>';
         });
 
@@ -1217,38 +981,37 @@
 
         // ===== ANIMAÇÕES AO SCROLLAR =====
         const fadeElements = document.querySelectorAll('.fade-in');
-
+        
         function checkFade() {
             fadeElements.forEach(element => {
                 const elementTop = element.getBoundingClientRect().top;
                 const windowHeight = window.innerHeight;
-
+                
                 if (elementTop < windowHeight - 100) {
                     element.classList.add('visible');
                 }
             });
         }
-
+        
         window.addEventListener('scroll', checkFade);
         window.addEventListener('load', checkFade);
 
         // ===== CARRINHO (simulação) =====
         const cartToggle = document.getElementById('cart-toggle');
         const cartCount = document.querySelector('.cart-count');
-
+        
         // Simular carrinho com itens
         let cartItems = 0;
-
+        
         cartToggle.addEventListener('click', (e) => {
             e.preventDefault();
             alert('Funcionalidade do carrinho será implementada em breve!');
         });
-
+        
         // Atualizar contador do carrinho
         function updateCartCount() {
             cartCount.textContent = cartItems;
         }
     </script>
-</body>
-
+    </body>
 </html>
