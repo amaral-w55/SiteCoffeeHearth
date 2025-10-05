@@ -55,11 +55,8 @@ coffee-hearth/
 └── img/               # Imagens
     └── Logotipo do Coffee Hearth.png
 🚀 Como Usar
-Clone o repositório:
-
-bash
-git clone https://github.com/seu-usuario/coffee-hearth.git
-Abra o arquivo index.html no navegador
+Clique no link abaixo👇
+amaral-w55.github.io/SiteCoffeeHearth/
 
 Explore as funcionalidades:
 
