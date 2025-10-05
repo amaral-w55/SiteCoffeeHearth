@@ -1,59 +1,83 @@
-☕ Coffee Hearth - Café que Aquece o Coração
+☕ Coffee Hearth
+Café que Aquece o CORAÇÃO
 
-Uma experiência acolhedora em café especial, onde cada xícara conta uma história
-
-🌟 Sobre o Projeto
-A Coffee Hearth é uma cafeteria virtual que oferece uma experiência completa para amantes de café. Desenvolvida com HTML, CSS e JavaScript puro, o site apresenta um design responsivo e elegante, com foco na experiência do usuário.
-
-✨ Características Principais
-🎨 Design Moderno - Interface limpa e elegante com paleta de cores aconchegante
-
-📱 Totalmente Responsivo - Adaptável a todos os dispositivos
-
-⚡ Performance Otimizada - Carregamento rápido e suave
-
-🛒 Sistema de Carrinho - Funcionalidade completa de e-commerce
-
-🎪 Gestão de Eventos - Calendário interativo e sistema de reservas
-
-🌙 Modo Escuro - Tema escuro para melhor experiência visual
+Site responsivo de cafeteria com cardápio online, sistema de carrinho e gestão de eventos.
 
 🚀 Funcionalidades
-Páginas Principais
-🏠 Início - Carrossel dinâmico e seções destacadas
+🏠 Página Inicial - Carrossel dinâmico e seções destacadas
 
-📖 Sobre - História e valores da marca
+☕ Cardápio Online - Produtos com sistema de carrinho
 
-☕ Cardápio - Produtos com sistema de carrinho
-
-🎪 Eventos - Calendário interativo e reservas
+🎪 Eventos - Calendário interativo e sistema de reservas
 
 ⭐ Avaliações - Depoimentos de clientes
 
 📞 Contato - Formulário funcional
 
-Recursos Técnicos
-Navegação Responsiva - Menu hamburger para mobile
+🛒 Carrinho - Sistema completo de compras
 
-Carrossel Automático - Transições suaves entre slides
+📱 Responsivo - Adaptado para todos os dispositivos
 
-Sistema de Carrinho - LocalStorage para persistência
+🛠️ Tecnologias
+HTML5, CSS3, JavaScript
 
-Formulários Validados - Validação em tempo real
+Font Awesome (ícones)
 
-Animações CSS - Transições e efeitos visuais
+Google Fonts (tipografia)
 
-Design System - Cores e tipografia consistentes
+LocalStorage (persistência)
 
-🛠️ Tecnologias Utilizadas
-Frontend: HTML5, CSS3, JavaScript (ES6+)
+CSS Grid & Flexbox
 
-Ícones: Font Awesome 6.4.0
+🎨 Design
+Paleta de Cores: Marrom e dourado
 
-Fontes: Google Fonts (Playfair Display, Montserrat)
+Tema: Escuro e aconchegante
 
-Design: CSS Grid, Flexbox, Variáveis CSS
+Tipografia: Playfair Display (títulos), Source Sans Pro (texto)
 
-Armazenamento: LocalStorage
+📱 Responsividade
+Mobile (até 768px)
 
-Responsividade: Media Queries
+Tablet (768px - 992px)
+
+Desktop (992px+)
+
+🗂️ Estrutura
+text
+coffee-hearth/
+├── index.html          # Página inicial
+├── sobre.html          # Sobre nós
+├── cardapio.html       # Cardápio
+├── eventos.html        # Eventos
+├── avaliacoes.html     # Avaliações
+├── contato.html        # Contato
+└── img/               # Imagens
+    └── Logotipo do Coffee Hearth.png
+🚀 Como Usar
+Clone o repositório:
+
+bash
+git clone https://github.com/seu-usuario/coffee-hearth.git
+Abra o arquivo index.html no navegador
+
+Explore as funcionalidades:
+
+Navegue pelo carrossel
+
+Adicione itens ao carrinho
+
+Explore eventos no calendário
+
+Faça reservas
+
+📞 Contato
+Email: coffeehearth@gmail.com
+
+Telefone: (11) 3456-7890
+
+Endereço: Rua das Flores, 123 - Centro, São Paulo - SP
+
+Desenvolvido com ❤️ e ☕ para amantes de café
+
+
