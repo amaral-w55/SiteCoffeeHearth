@@ -32,7 +32,7 @@
         html {
             scroll-behavior: smooth;
             transition: all 1.3s ease-in-out;
-             }
+        }
 
         * {
             margin: 0;
@@ -1049,6 +1049,21 @@
                 display: block;
             }
 
+            .carousel {
+                height: 50vh !important;
+                min-height: 300px;
+            }
+
+            .carousel-slide img {
+                min-height: 300px;
+                object-fit: cover;
+            }
+
+            .slide-content {
+                width: 90% !important;
+                padding: 15px;
+            }
+
             .nav-menu {
                 position: fixed;
                 top: 70px;
@@ -1095,11 +1110,11 @@
             }
 
             .about-image img {
-            width: 550px;
-            height: 550px;
-            display: block;
-            transition: var(--transition);
-        }
+                width: 550px;
+                height: 550px;
+                display: block;
+                transition: var(--transition);
+            }
         }
 
         @media (max-width: 576px) {
