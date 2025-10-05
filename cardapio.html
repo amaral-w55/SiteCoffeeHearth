@@ -1,0 +1,1731 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio Completo - Coffee Hearth</title>
+    <link rel="shortcut icon" href="img/Logotipo do Coffee Hearth.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --font-titulo: 'Playfair Display', serif;
+            --font-texto: 'Source Sans Pro', sans-serif;
+            --font-ui: 'Inter', sans-serif;
+            --dark-brown: #3C2A21;
+            --medium-brown: #5C3D2E;
+            --light-brown: #8B5A2B;
+            --accent-gold: #D4AF37;
+            --dark-gray: #2A2A2A;
+            --medium-gray: #4A4A4A;
+            --light-gray: #E0E0E0;
+            --white: #FFFFFF;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            transition: all 1.3s ease-in-out;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-texto);
+            background-color: var(--dark-gray);
+            color: var(--light-gray);
+            line-height: 1.6;
+        }
+
+        /* No CSS do cardapio.html - ADICIONE: */
+        .menu-section {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .menu-section:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .menu-section:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .menu-section:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .menu-section:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+        }
+
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: var(--font-titulo);
+            color: var(--accent-gold);
+        }
+
+        p,
+        li,
+        span {
+            font-family: var(--font-texto);
+        }
+
+        button,
+        input,
+        label {
+            font-family: var(--font-ui);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        #cart-toggle {
+            margin-top: 5px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            text-align: center;
+            position: relative;
+            margin-bottom: 50px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-gold);
+            border-radius: 2px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--light-brown);
+            color: var(--white);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-gold);
+            color: var(--dark-brown);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--dark-brown);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 5px 0;
+            background-color: rgba(60, 42, 33, 0.95);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 70px;
+            height: 70px;
+            background-color: var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-weight: bold;
+            color: var(--dark-brown);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+        }
+
+        .logo-img1 {
+            width: 70px;
+            height: 70px;
+            background-color: var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+            margin-right: 10px;
+            font-weight: bold;
+            color: var(--dark-brown);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+        }
+
+        .logo-coffee {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 10px;
+            transition: all 0.5s ease;
+        }
+
+        .logo-coffee:hover {
+            transform: scale(1.08);
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            margin: 0;
+            color: var(--white);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-left: 30px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--light-gray);
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu a i {
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--accent-gold);
+        }
+
+        .cart-icon {
+            position: relative;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--accent-gold);
+            color: var(--dark-brown);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--light-gray);
+        }
+
+        /* Menu Page Styles */
+        .menu-page {
+            padding-top: 120px;
+            background-color: var(--medium-gray);
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+            margin-top: 50px;
+        }
+
+        .page-description {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+
+        .menu-categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .category-btn {
+            padding: 10px 20px;
+            background-color: var(--dark-brown);
+            color: var(--light-gray);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .category-btn.active,
+        .category-btn:hover {
+            background-color: var(--accent-gold);
+            color: var(--dark-brown);
+        }
+
+        .menu-section {
+            margin-bottom: 80px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header i {
+            margin-bottom: 48px;
+            font-size: 2rem;
+            margin-right: 15px;
+            color: var(--accent-gold);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .menu-item {
+            background-color: var(--dark-gray);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--medium-brown);
+        }
+
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            border-color: var(--accent-gold);
+        }
+
+        .menu-item-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .menu-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .menu-item:hover .menu-item-image img {
+            transform: scale(1.1);
+        }
+
+        .menu-item-content {
+            padding: 20px;
+        }
+
+        .menu-item-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .menu-item-title h3 {
+            margin: 0;
+            font-size: 1.3rem;
+        }
+
+        .menu-item-price {
+            color: var(--accent-gold);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .menu-item p {
+            color: #aaa;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            padding: 10px;
+            background-color: var(--light-brown);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .add-to-cart i {
+            margin-right: 8px;
+        }
+
+        .add-to-cart:hover {
+            background-color: var(--accent-gold);
+            color: var(--dark-brown);
+        }
+
+        /* Cart Styles */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 380px;
+            height: 100vh;
+            background-color: var(--dark-brown);
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+            z-index: 1100;
+            transition: var(--transition);
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-sidebar.active {
+            right: 0;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--medium-brown);
+        }
+
+        .cart-header h3 {
+            margin: 0;
+            color: var(--accent-gold);
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            color: var(--light-gray);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .close-cart:hover {
+            color: var(--accent-gold);
+        }
+
+        .cart-items {
+            flex: 1;
+            margin-bottom: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--medium-brown);
+        }
+
+        .cart-item-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+
+        .cart-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-details h4 {
+            margin: 0 0 5px;
+            font-size: 1rem;
+        }
+
+        .cart-item-details p {
+            margin: 0;
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .cart-item-controls {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .quantity-btn {
+            width: 25px;
+            height: 25px;
+            background-color: var(--medium-gray);
+            color: var(--light-gray);
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quantity {
+            margin: 0 10px;
+            font-weight: 600;
+        }
+
+        .remove-item {
+            background: none;
+            border: none;
+            color: #ff6b6b;
+            cursor: pointer;
+            margin-left: auto;
+            transition: var(--transition);
+        }
+
+        .remove-item:hover {
+            color: #ff5252;
+        }
+
+        .cart-total {
+            padding: 15px 0;
+            border-top: 1px solid var(--medium-brown);
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .cart-total span {
+            color: var(--accent-gold);
+        }
+
+        .cart-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .cart-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1050;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .cart-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--dark-brown);
+            color: var(--light-gray);
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .logo h2 {
+            color: var(--accent-gold);
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .footer-column p {
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-links a i {
+            margin-right: 8px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--medium-brown);
+            color: var(--light-gray);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent-gold);
+            color: var(--dark-brown);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            border-top: 1px solid var(--medium-brown);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: var(--dark-brown);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                transition: var(--transition);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 15px 0;
+            }
+
+            .cart-sidebar {
+                width: 100%;
+                right: -100%;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="loadingScreen" class="loading-screen">
+        <div class="coffee-loader"></div>
+    </div>
+
+    <!-- HEADER -->
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <div class="logo-img1">
+                        <img class="logo-coffee" src="img/Logotipo do Coffee Hearth.png" alt="logo-img">
+                    </div>
+                </a>
+                <div class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Início</a></li>
+                    <li><a href="sobre.html" class="nav-link"><i class="fas fa-info-circle"></i>
+                            Sobre</a></li>
+                    <li><a href="cardapio.html" class="nav-link active"><i class="fas fa-coffee"></i> Cardápio</a></li>
+                    <li><a href="eventos.html" class="nav-link"><i class="fas fa-calendar-alt"></i>
+                            Eventos</a></li>
+                    <li><a href="avaliacoes.html" class="nav-link"><i class="fas fa-star"></i> Avaliações</a></li>
+                    <li><a href="contato.html" class="nav-link"><i class="fas fa-envelope"></i>
+                            Contato</a></li>
+                    <li>
+                        <a href="#" class="nav-link cart-icon" id="cart-toggle">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- CARRINHO -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Seu Carrinho</h3>
+            <button class="close-cart" id="close-cart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Itens do carrinho serão adicionados aqui via JavaScript -->
+        </div>
+        <div class="cart-total">
+            <span>Total:</span>
+            <span id="cart-total-price">R$ 0,00</span>
+        </div>
+        <div class="cart-actions">
+            <button class="btn" id="checkout-btn"
+                style="background-color: var(--accent-gold); color: var(--dark-brown);">Finalizar
+                Pedido</button>
+            <button class="btn" id="continue-shopping">Continuar
+                Comprando</button>
+        </div>
+    </div>
+
+    <!-- CONTEÚDO DA PÁGINA CARDÁPIO -->
+    <section class="menu-page" class="fade-in-on-scroll">
+        <div class="container">
+            <div class="page-header">
+                <h1>Cardápio Completo</h1>
+                <p class="page-description">Explore nossa seleção
+                    cuidadosamente elaborada de cafés especiais, bebidas
+                    artesanais, deliciosos doces e salgados. Cada item é
+                    preparado com ingredientes de alta qualidade e muito
+                    carinho.</p>
+            </div>
+
+            <div class="menu-categories">
+                <button class="category-btn active" data-category="all">Todos os Itens</button>
+                <button class="category-btn" data-category="cafe">Cafés
+                    Especiais</button>
+                <button class="category-btn" data-category="bebida">Bebidas</button>
+                <button class="category-btn" data-category="doce">Doces</button>
+                <button class="category-btn" data-category="salgado">Salgados</button>
+            </div>
+
+            <!-- Seção de Cafés -->
+            <div class="menu-section" id="cafes" class="menu-item fade-in-on-scroll">
+                <div class="section-header">
+                    <i class="fas fa-mug-hot"></i>
+                    <h2>Cafés Especiais</h2>
+                </div>
+                <div class="menu-grid">
+                    <div class="menu-item" data-category="cafe">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/34149762/pexels-photo-34149762.jpeg"
+                                alt="Espresso Clássico">
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Espresso Clássico</h3>
+                                <span class="menu-item-price">R$ 8,90</span>
+                            </div>
+                            <p>Nosso espresso tradicional, intenso e
+                                encorpado, com crema aveludada e sabor
+                                marcante.</p>
+                            <button class="add-to-cart" data-id="1" data-name="Espresso Clássico" data-price="8.90"
+                                data-image="https://images.pexels.com/photos/34149762/pexels-photo-34149762.jpeg">
+                                <i class="fas fa-cart-plus"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" data-category="cafe">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/9050512/pexels-photo-9050512.jpeg"
+                                alt="Cappuccino Cremoso">
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Cappuccino Cremoso</h3>
+                                <span class="menu-item-price">R$
+                                    12,90</span>
+                            </div>
+                            <p>Espresso com leite vaporizado e uma generosa
+                                camada de espuma, finalizado com cacau em
+                                pó.</p>
+                            <button class="add-to-cart" data-id="2" data-name="Cappuccino Cremoso" data-price="12.90"
+                                data-image="https://images.pexels.com/photos/9050512/pexels-photo-9050512.jpeg">
+                                <i class="fas fa-cart-plus"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" data-category="cafe">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/6205652/pexels-photo-6205652.jpeg"
+                                alt="Latte Art Especial">
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Latte Art Especial</h3>
+                                <span class="menu-item-price">R$
+                                    14,90</span>
+                            </div>
+                            <p>Nosso espresso suave com leite e
+                                arte personalizada. Uma
+                                experiência visual e sensorial.</p>
+                            <button class="add-to-cart" data-id="3" data-name="Latte Art Especial" data-price="14.90"
+                                data-image="https://images.pexels.com/photos/6205652/pexels-photo-6205652.jpeg">
+                                <i class="fas fa-cart-plus"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" data-category="cafe">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/3551717/pexels-photo-3551717.png"
+                                alt="Mocha Delícia">
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Mocha Delícia</h3>
+                                <span class="menu-item-price">R$
+                                    16,90</span>
+                            </div>
+                            <p>Espresso, chocolate belga, leite vaporizado e
+                                finalizado com chantilly e raspas de
+                                chocolate.</p>
+                            <button class="add-to-cart" data-id="4" data-name="Mocha Delícia" data-price="16.90"
+                                data-image="https://images.pexels.com/photos/3551717/pexels-photo-3551717.png">
+                                <i class="fas fa-cart-plus"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" data-category="cafe">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/17506133/pexels-photo-17506133.jpeg"
+                                alt="Macchiato Caramelo">
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Macchiato Caramelo</h3>
+                                <span class="menu-item-price">R$
+                                    15,90</span>
+                            </div>
+                            <p>Espresso com uma suave camada de espuma e
+                                delicioso syrup de caramelo artesanal.</p>
+                            <button class="add-to-cart" data-id="5" data-name="Macchiato Caramelo" data-price="15.90"
+                                data-image="https://images.pexels.com/photos/17506133/pexels-photo-17506133.jpeg">
+                                <i class="fas fa-cart-plus"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" data-category="cafe">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/2615323/pexels-photo-2615323.jpeg"
+                                alt="Café Gelado Especial">
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Café Gelado Especial</h3>
+                                <span class="menu-item-price">R$
+                                    13,90</span>
+                            </div>
+                            <p>Nosso espresso resfriado servido com gelo,
+                                leite e calda de baunilha. Refrescante e
+                                saboroso.</p>
+                            <button class="add-to-cart" data-id="6" data-name="Café Gelado Especial" data-price="13.90"
+                                data-image="https://images.pexels.com/photos/2615323/pexels-photo-2615323.jpeg">
+                                <i class="fas fa-cart-plus"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção de Bebidas -->
+            <div class="menu-section" id="bebidas" class="menu-item fade-in-on-scroll">
+                <div class="section-header">
+                    <i class="fas fa-glass-whiskey"></i>
+                    <h2>Bebidas</h2>
+                </div>
+                <div class="menu-grid">
+                    <div class="menu-item" data-category="bebida">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/239584/pexels-photo-239584.jpeg"
+                                alt="Chocolate Quente">
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Chocolate Quente</h3>
+                                <span class="menu-item-price">R$
+                                    10,90</span>
+                            </div>
+                            <p>Chocolate belga derretido com leite cremoso,
+                                finalizado com chantilly e raspas de
+                                chocolate.</p>
+                            <button class="add-to-cart" data-id="7" data-name="Chocolate Quente" data-price="10.90"
+                                data-image="https://images.pexels.com/photos/239584/pexels-photo-239584.jpeg">
+                                <i class="fas fa-cart-plus"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" data-category="bebida">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/2013749/pexels-photo-2013749.jpeg"
+                                alt="Chá Especial da Casa">
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Chá Especial da Casa</h3>
+                                <span class="menu-item-price">R$ 9,90</span>
+                            </div>
+                            <p>Chás aromáticos importados.
+                                Opções: English Breakfast, Earl Grey, Chai e
+                                Frutas Vermelhas.</p>
+                            <button class="add-to-cart" data-id="8" data-name="Chá Especial da Casa" data-price="9.90"
+                                data-image="https://images.pexels.com/photos/2013749/pexels-photo-2013749.jpeg">
+                                <i class="fas fa-cart-plus"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" data-category="bebida">
+                        <div class="menu-item-image">
+                            <img src="https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                                alt="Suco Natural">
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Suco Natural</h3>
+                                <span class="menu-item-price">R$ 8,90</span>
+                            </div>
+                            <p>Sucos frescos preparados na hora. Opções:
+                                Laranja, Limão, Abacaxi com Hortelã e
+                                Morango.</p>
+                            <button class="add-to-cart" data-id="9" data-name="Suco Natural" data-price="8.90"
+                                data-image="https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80">
+                                <i class="fas fa-cart-plus"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" data-category="bebida">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/3727250/pexels-photo-3727250.jpeg"
+                                alt="Milkshake">
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Milkshake</h3>
+                                <span class="menu-item-price">R$
+                                    18,90</span>
+                            </div>
+                            <p>Milkshake cremoso e gelado. Opções:
+                                Chocolate, Morango, Baunilha e
+                                Ovomaltine.</p>
+                            <button class="add-to-cart" data-id="10" data-name="Milkshake" data-price="18.90"
+                                data-image="https://images.pexels.com/photos/3727250/pexels-photo-3727250.jpeg">
+                                <i class="fas fa-cart-plus"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" data-category="bebida">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/416528/pexels-photo-416528.jpeg"
+                                alt="agua-mineral">
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Água-Mineral</h3>
+                                <span class="menu-item-price">R$
+                                    4,90</span>
+                            </div>
+                            <p>Copo de água mineral de 500ml.</p><br>
+                            <button class="add-to-cart" data-id="11" data-name="agua-mineral" data-price="4.50"
+                                data-image="https://images.pexels.com/photos/416528/pexels-photo-416528.jpeg">
+                                <i class="fas fa-cart-plus"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" data-category="bebida">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/2775860/pexels-photo-2775860.jpeg"
+                                alt="refrigerante">
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Refrigerante</h3>
+                                <span class="menu-item-price">R$
+                                    6,90</span>
+                            </div>
+                            <p>Copo de Refrigerante com/sem gelo de 500ml.</p><br>
+                            <button class="add-to-cart" data-id="12" data-name="refrigerante" data-price="6.90"
+                                data-image="https://images.pexels.com/photos/2775860/pexels-photo-2775860.jpeg">
+                                <i class="fas fa-cart-plus"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- Seção de Doces -->
+            <div class="menu-section" id="doces" class="menu-item fade-in-on-scroll">
+                <div class="section-header">
+                    <i class="fas fa-cookie-bite"></i>
+                    <h2>Doces & Sobremesas</h2>
+                </div>
+                <div class="menu-grid">
+                    <div class="menu-item" data-category="doce">
+                        <div class="menu-item-image">
+                            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1389&q=80"
+                                alt="Bolo de Chocolate">
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Bolo de Chocolate</h3>
+                                <span class="menu-item-price">R$
+                                    11,90</span>
+                            </div>
+                            <p>Bolo úmido e intenso de chocolate, com
+                                cobertura ganache e raspas de chocolate
+                                belga.</p>
+                            <button class="add-to-cart" data-id="11" data-name="Bolo de Chocolate" data-price="11.90"
+                                data-image="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1389&q=80">
+                                <i class="fas fa-cart-plus"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" data-category="doce">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/34104117/pexels-photo-34104117.png"
+                                alt="Croissant Doce">
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Croissant Doce</h3>
+                                <span class="menu-item-price">R$ 9,90</span>
+                            </div>
+                            <p>Croissant folhado e dourado, recheado com
+                                chocolate, doce de leite ou creme de
+                                baunilha.</p>
+                            <button class="add-to-cart" data-id="12" data-name="Croissant Doce" data-price="9.90"
+                                data-image="https://images.pexels.com/photos/34104117/pexels-photo-34104117.png">
+                                <i class="fas fa-cart-plus"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" data-category="doce">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/27566690/pexels-photo-27566690.jpeg"
+                                alt="Cheesecake de Morango">
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Cheesecake de Morango</h3>
+                                <span class="menu-item-price">R$
+                                    15,90</span>
+                            </div>
+                            <p>Cheesecake cremoso com base de biscoito e
+                                calda de morangos frescos. Uma delícia
+                                irresistível.</p>
+                            <button class="add-to-cart" data-id="13" data-name="Cheesecake de Morango"
+                                data-price="15.90"
+                                data-image="https://images.pexels.com/photos/27566690/pexels-photo-27566690.jpeg">
+                                <i class="fas fa-cart-plus"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" data-category="doce">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/34124950/pexels-photo-34124950.jpeg"
+                                alt="Cookie Artesanal">
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Cookie Artesanal</h3>
+                                <span class="menu-item-price">R$ 7,90</span>
+                            </div>
+                            <p>Cookie macio por dentro e crocante por fora.
+                                Opções: Chocolate, Nozes e M&M's.</p>
+                            <button class="add-to-cart" data-id="14" data-name="Cookie Artesanal" data-price="7.90"
+                                data-image="https://images.pexels.com/photos/34124950/pexels-photo-34124950.jpeg">
+                                <i class="fas fa-cart-plus"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" data-category="doce">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/8330845/pexels-photo-8330845.jpeg"
+                                alt="Torta de Limão">
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Torta de Limão</h3>
+                                <span class="menu-item-price">R$
+                                    12,90</span>
+                            </div>
+                            <p> Massa crocante, recheio cremoso de limão e
+                                merengue dourado. Equilíbrio entre
+                                doce e ácido.</p>
+                            <button class="add-to-cart" data-id="15" data-name="Torta de Limão" data-price="12.90"
+                                data-image="https://images.pexels.com/photos/8330845/pexels-photo-8330845.jpeg">
+                                <i class="fas fa-cart-plus"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" data-category="doce">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/10281094/pexels-photo-10281094.jpeg"
+                                alt="Brownie com Sorvete">
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Brownie com Sorvete</h3>
+                                <span class="menu-item-price">R$
+                                    16,90</span>
+                            </div>
+                            <p>Brownie de chocolate intenso servido quente
+                                com bola de sorvete de baunilha e calda de
+                                chocolate.</p>
+                            <button class="add-to-cart" data-id="16" data-name="Brownie com Sorvete" data-price="16.90"
+                                data-image="https://images.pexels.com/photos/10281094/pexels-photo-10281094.jpeg">
+                                <i class="fas fa-cart-plus"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção de Salgados -->
+            <div class="menu-section" id="salgados" class="menu-item fade-in-on-scroll">
+                <div class="section-header">
+                    <i class="fas fa-bread-slice"></i>
+                    <h2>Salgados</h2>
+                </div>
+                <div class="menu-grid">
+                    <div class="menu-item" data-category="salgado">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/1209029/pexels-photo-1209029.jpeg"
+                                alt="Sanduíche Natural">
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Sanduíche Natural</h3>
+                                <span class="menu-item-price">R$
+                                    16,90</span>
+                            </div>
+                            <p>Pão integral com peito de peru, queijo
+                                branco, alface, tomate e maionese
+                                caseira.</p>
+                            <button class="add-to-cart" data-id="17" data-name="Sanduíche Natural" data-price="16.90"
+                                data-image="https://images.pexels.com/photos/1209029/pexels-photo-1209029.jpeg">
+                                <i class="fas fa-cart-plus"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" data-category="salgado">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/3872255/pexels-photo-3872255.jpeg"
+                                alt="Croissant Salgado">
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Croissant Salgado</h3>
+                                <span class="menu-item-price">R$
+                                    12,90</span>
+                            </div>
+                            <p>Croissant folhado recheado com presunto e
+                                queijo ou frango desfiado com requeijão.</p>
+                            <button class="add-to-cart" data-id="18" data-name="Croissant Salgado" data-price="12.90"
+                                data-image="https://images.pexels.com/photos/3872255/pexels-photo-3872255.jpeg">
+                                <i class="fas fa-cart-plus"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" data-category="salgado">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/5419184/pexels-photo-5419184.jpeg"
+                                alt="Quiche Lorraine">
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Quiche Lorraine</h3>
+                                <span class="menu-item-price">R$
+                                    14,90</span>
+                            </div>
+                            <p>Massa folhada com recheio cremoso de bacon,
+                                queijo e nata. Uma delícia francesa.</p>
+                            <button class="add-to-cart" data-id="19" data-name="Quiche Lorraine" data-price="14.90"
+                                data-image="https://images.pexels.com/photos/5419184/pexels-photo-5419184.jpeg">
+                                <i class="fas fa-cart-plus"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" data-category="salgado">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/2955816/pexels-photo-2955816.jpeg"
+                                alt="Empada de Frango">
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Empada de Frango</h3>
+                                <span class="menu-item-price">R$ 8,90</span>
+                            </div>
+                            <p>Massa amanteigada com recheio cremoso de
+                                frango desfiado com azeitonas.</p>
+                            <button class="add-to-cart" data-id="20" data-name="Empada de Frango" data-price="8.90"
+                                data-image="https://images.pexels.com/photos/2955816/pexels-photo-2955816.jpeg">
+                                <i class="fas fa-cart-plus"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" data-category="salgado">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/17741883/pexels-photo-17741883.jpeg"
+                                alt="Torta de Frango">
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Torta de Frango</h3>
+                                <span class="menu-item-price">R$
+                                    13,90</span>
+                            </div>
+                            <p>Fatia generosa de torta de frango com massa
+                                crocante e recheio cremoso.</p>
+                            <button class="add-to-cart" data-id="21" data-name="Torta de Frango" data-price="13.90"
+                                data-image="https://images.pexels.com/photos/17741883/pexels-photo-17741883.jpeg">
+                                <i class="fas fa-cart-plus"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" data-category="salgado">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/1885578/pexels-photo-1885578.jpeg" alt="Panini">
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Panini</h3>
+                                <span class="menu-item-price">R$
+                                    18,90</span>
+                            </div>
+                            <p>Pão italiano prensado com queijo mussarela,
+                                presunto, tomate e manjericão.</p>
+                            <button class="add-to-cart" data-id="22" data-name="Panini" data-price="18.90"
+                                data-image="https://images.pexels.com/photos/1885578/pexels-photo-1885578.jpeg">
+                                <i class="fas fa-cart-plus"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="logo">
+                        <div class="logo-img"><img class="logo-coffee" src="img/Logotipo do Coffee Hearth.png"
+                                alt="logo"></div>
+                        <h2 class="footer-logo">Coffee Hearth</h2>
+                    </div>
+                    <p>Há mais de 10 anos servindo os melhores cafés
+                        especiais em um ambiente aconchegante e
+                        acolhedor.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-home"></i>
+                                Início</a></li>
+                        <li><a href="sobre.html"><i class="fas fa-info-circle"></i> Sobre
+                                Nós</a></li>
+                        <li><a href="cardapio.html"><i class="fas fa-coffee"></i>
+                                Cardápio</a></li>
+                        <li><a href="eventos.html"><i class="fas fa-calendar-alt"></i>
+                                Eventos</a></li>
+                        <li><a href="avaliacoes.html"><i class="fas fa-star"></i>
+                                Avaliações</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Cardápio</h3>
+                    <ul class="footer-links">
+                        <li><a href="cardapio.html#cafes"><i class="fas fa-mug-hot"></i> Cafés
+                                Especiais</a></li>
+                        <li><a href="cardapio.html#bebidas"><i class="fas fa-beer"></i>
+                                Bebidas</a></li>
+                        <li><a href="cardapio.html#doces"><i class="fas fa-cookie"></i>
+                                Doces</a></li>
+                        <li><a href="cardapio.html#salgados"><i class="fas fa-bread-slice"></i>
+                                Salgados</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Rua das Flores, 123 - Centro, São Paulo - SP</p>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-phone"></i>
+                        <p>(11) 3456-7890</p>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope"></i>
+                        <p>coffeehearth@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Coffee Hearth. Todos os direitos
+                    reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ===== VARIÁVEIS GLOBAIS =====
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // ===== HEADER SCROLL =====
+        const header = document.getElementById('header');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // ===== MENU HAMBURGUER =====
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.innerHTML = navMenu.classList.contains('active')
+                ? '<i class="fas fa-times"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // ===== FILTRO DE CATEGORIAS DO CARDÁPIO =====
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        const menuItems = document.querySelectorAll('.menu-item');
+
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remover classe active de todos os botões
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                // Adicionar classe active ao botão clicado
+                button.classList.add('active');
+
+                const category = button.getAttribute('data-category');
+
+                // Filtrar itens do cardápio
+                menuItems.forEach(item => {
+                    if (category === 'all' || item.getAttribute('data-category') === category) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // ===== SISTEMA DE CARRINHO =====
+        const cartToggle = document.getElementById('cart-toggle');
+        const cartSidebar = document.getElementById('cart-sidebar');
+        const cartOverlay = document.getElementById('cart-overlay');
+        const closeCart = document.getElementById('close-cart');
+        const cartItems = document.getElementById('cart-items');
+        const cartTotalPrice = document.getElementById('cart-total-price');
+        const cartCount = document.querySelector('.cart-count');
+        const continueShopping = document.getElementById('continue-shopping');
+        const checkoutBtn = document.getElementById('checkout-btn');
+
+        // Abrir/fechar carrinho
+        cartToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            cartSidebar.classList.add('active');
+            cartOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeCart.addEventListener('click', closeCartSidebar);
+        cartOverlay.addEventListener('click', closeCartSidebar);
+        continueShopping.addEventListener('click', closeCartSidebar);
+
+        function closeCartSidebar() {
+            cartSidebar.classList.remove('active');
+            cartOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Adicionar item ao carrinho
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const id = this.getAttribute('data-id');
+                const name = this.getAttribute('data-name');
+                const price = parseFloat(this.getAttribute('data-price'));
+                const image = this.getAttribute('data-image');
+
+                addToCart(id, name, price, image);
+
+                // Feedback visual
+                const originalText = this.innerHTML;
+                this.innerHTML = '<i class="fas fa-check"></i> Adicionado!';
+                this.style.backgroundColor = '#4CAF50';
+
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                    this.style.backgroundColor = '';
+                }, 2000);
+            });
+        });
+
+        // Função para adicionar item ao carrinho
+        function addToCart(id, name, price, image) {
+            const existingItem = cart.find(item => item.id === id);
+
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id,
+                    name,
+                    price,
+                    image,
+                    quantity: 1
+                });
+            }
+
+            updateCart();
+        }
+
+        // Atualizar carrinho
+        function updateCart() {
+            // Salvar carrinho no localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Atualizar contador
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = totalItems;
+
+            // Atualizar lista de itens
+            cartItems.innerHTML = '';
+
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p style="text-align: center; padding: 20px;">Seu carrinho está vazio</p>';
+                cartTotalPrice.textContent = 'R$ 0,00';
+                return;
+            }
+
+            let totalPrice = 0;
+
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                totalPrice += itemTotal;
+
+                const cartItemElement = document.createElement('div');
+                cartItemElement.className = 'cart-item';
+                cartItemElement.innerHTML = `
+                    <div class="cart-item-image">
+                        <img src="${item.image}" alt="${item.name}">
+                    </div>
+                    <div class="cart-item-details">
+                        <h4>${item.name}</h4>
+                        <p>R$ ${item.price.toFixed(2)}</p>
+                        <div class="cart-item-controls">
+                            <button class="quantity-btn decrease" data-id="${item.id}">-</button>
+                            <span class="quantity">${item.quantity}</span>
+                            <button class="quantity-btn increase" data-id="${item.id}">+</button>
+                            <button class="remove-item" data-id="${item.id}">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+
+                cartItems.appendChild(cartItemElement);
+            });
+
+            // Atualizar preço total
+            cartTotalPrice.textContent = `R$ ${totalPrice.toFixed(2)}`;
+
+            // Adicionar event listeners para os botões de quantidade e remoção
+            document.querySelectorAll('.quantity-btn.decrease').forEach(button => {
+                button.addEventListener('click', function () {
+                    const id = this.getAttribute('data-id');
+                    decreaseQuantity(id);
+                });
+            });
+
+            document.querySelectorAll('.quantity-btn.increase').forEach(button => {
+                button.addEventListener('click', function () {
+                    const id = this.getAttribute('data-id');
+                    increaseQuantity(id);
+                });
+            });
+
+            document.querySelectorAll('.remove-item').forEach(button => {
+                button.addEventListener('click', function () {
+                    const id = this.getAttribute('data-id');
+                    removeFromCart(id);
+                });
+            });
+        }
+
+        // Funções para manipular quantidades
+        function decreaseQuantity(id) {
+            const item = cart.find(item => item.id === id);
+            if (item) {
+                if (item.quantity > 1) {
+                    item.quantity -= 1;
+                } else {
+                    removeFromCart(id);
+                    return;
+                }
+                updateCart();
+            }
+        }
+
+        function increaseQuantity(id) {
+            const item = cart.find(item => item.id === id);
+            if (item) {
+                item.quantity += 1;
+                updateCart();
+            }
+        }
+
+        function removeFromCart(id) {
+            cart = cart.filter(item => item.id !== id);
+            updateCart();
+        }
+
+        // Finalizar compra
+        checkoutBtn.addEventListener('click', () => {
+            if (cart.length === 0) {
+                alert('Seu carrinho está vazio!');
+                return;
+            }
+
+            alert('Pedido finalizado com sucesso! Obrigado pela preferência.');
+            cart = [];
+            updateCart();
+            closeCartSidebar();
+        });
+
+        // Inicializar carrinho
+        updateCart();
+        function initScrollAnimations() {
+            const elements = document.querySelectorAll('.fade-in')
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            });
+
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+        }
+
+    </script>
+</body>
+
+</html>

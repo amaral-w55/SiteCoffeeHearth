@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/Logotipo do Coffee Hearth.png" type="image/x-icon">
+    <title>Eventos - Coffee Hearth</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --font-titulo: 'Playfair Display', serif;
+            --font-texto: 'Source Sans Pro', sans-serif;
+            --font-ui: 'Inter', sans-serif;
+            --dark-brown: #3C2A21;
+            --medium-brown: #5C3D2E;
+            --light-brown: #8B5A2B;
+            --accent-gold: #D4AF37;
+            --dark-gray: #2A2A2A;
+            --medium-gray: #4A4A4A;
+            --light-gray: #E0E0E0;
+            --white: #FFFFFF;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #cart-toggle {
+            margin-top: 5px;
+        }
+
+        /* VERSÃO MAIS SIMPLES - Apenas os essenciais */
+
+        @keyframes slideUpFade {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Aplica a todos os elementos principais */
+        section,
+        .card,
+        .evento,
+        .avaliacao {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUpFade 0.6s ease-out forwards;
+        }
+
+        /* Delay automático para filhos */
+        section:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        section:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        section:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        section:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .card:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .card:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+
+        .card:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .card:nth-child(4) {
+            animation-delay: 0.5s;
+        }
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-texto);
+            background-color: var(--dark-gray);
+            color: var(--light-gray);
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: var(--font-titulo);
+            color: var(--accent-gold);
+        }
+
+        p,
+        li,
+        span {
+            font-family: var(--font-texto);
+        }
+
+        button,
+        input,
+        label {
+            font-family: var(--font-ui);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            text-align: center;
+            position: relative;
+            margin-bottom: 50px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-gold);
+            border-radius: 2px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--light-brown);
+            color: var(--white);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-gold);
+            color: var(--dark-brown);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-gold {
+            background-color: var(--accent-gold);
+            color: var(--dark-brown);
+        }
+
+        .btn-gold:hover {
+            background-color: var(--light-brown);
+            color: var(--white);
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--dark-brown);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 5px 0;
+            background-color: rgba(60, 42, 33, 0.95);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 70px;
+            height: 70px;
+            background-color: var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-weight: bold;
+            color: var(--dark-brown);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+        }
+
+        .logo-img1 {
+            width: 70px;
+            height: 70px;
+            background-color: var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+            margin-right: 10px;
+            font-weight: bold;
+            color: var(--dark-brown);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+        }
+
+        .logo-coffee {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 10px;
+            transition: all 0.5s ease;
+        }
+
+        .logo-coffee:hover {
+            transform: scale(1.08);
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            margin: 0;
+            color: var(--white);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-left: 30px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--light-gray);
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu a i {
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--accent-gold);
+        }
+
+        .cart-icon {
+            position: relative;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--accent-gold);
+            color: var(--dark-brown);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--light-gray);
+        }
+
+        /* Events Page Styles */
+        .events-page {
+            padding-top: 120px;
+            background-color: var(--medium-gray);
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .page-description {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+
+        .events-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--medium-brown);
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 12px 25px;
+            background: none;
+            border: none;
+            color: var(--light-gray);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab-btn.active {
+            color: var(--accent-gold);
+            border-bottom: 3px solid var(--accent-gold);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .event-card {
+            background-color: var(--dark-gray);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--medium-brown);
+        }
+
+        .event-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            border-color: var(--accent-gold);
+        }
+
+        .event-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .event-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .event-card:hover .event-image img {
+            transform: scale(1.1);
+        }
+
+        .event-content {
+            padding: 25px;
+        }
+
+        .event-date {
+            display: inline-block;
+            background-color: var(--accent-gold);
+            color: var(--dark-brown);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .event-content h3 {
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+
+        .event-content p {
+            color: #aaa;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .event-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .event-detail {
+            display: flex;
+            align-items: center;
+        }
+
+        .event-detail i {
+            color: var(--accent-gold);
+            margin-right: 8px;
+        }
+
+        .event-price {
+            color: var(--accent-gold);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .no-events {
+            text-align: center;
+            padding: 40px;
+            color: #aaa;
+            font-style: italic;
+        }
+
+        .events-calendar {
+            background-color: var(--dark-gray);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 50px;
+            box-shadow: var(--shadow);
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+        }
+
+        .calendar-day {
+            text-align: center;
+            padding: 10px;
+            font-weight: 600;
+            color: var(--accent-gold);
+        }
+
+        .calendar-date {
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .calendar-date.has-event {
+            background-color: var(--medium-brown);
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .calendar-date:hover {
+            background-color: var(--accent-gold);
+            color: var(--dark-brown);
+        }
+
+        .calendar-date.empty {
+            background-color: transparent;
+            cursor: default;
+        }
+
+        .calendar-date.empty:hover {
+            background-color: transparent;
+            color: inherit;
+        }
+
+        .event-highlight {
+            background-color: var(--accent-gold);
+            color: var(--dark-brown);
+            font-weight: 600;
+        }
+
+        .event-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1200;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .event-modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: var(--dark-gray);
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: var(--shadow);
+            border: 2px solid var(--accent-gold);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            color: var(--light-gray);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .close-modal:hover {
+            color: var(--accent-gold);
+        }
+
+        .modal-body p {
+            margin-bottom: 15px;
+        }
+
+        .rsvp-form {
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            background-color: var(--medium-gray);
+            border: 1px solid var(--medium-brown);
+            border-radius: 5px;
+            color: var(--light-gray);
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--dark-brown);
+            color: var(--light-gray);
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .logo h2 {
+            color: var(--accent-gold);
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .footer-column p {
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-links a i {
+            margin-right: 8px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--medium-brown);
+            color: var(--light-gray);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent-gold);
+            color: var(--dark-brown);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            border-top: 1px solid var(--medium-brown);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: var(--dark-brown);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                transition: var(--transition);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 15px 0;
+            }
+
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .events-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tab-btn {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .event-details {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <div class="logo-img1">
+                        <img class="logo-coffee" src="img/Logotipo do Coffee Hearth.png" alt="logo-img">
+                    </div>
+                </a>
+
+                <div class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Início</a></li>
+                    <li><a href="sobre.html" class="nav-link"><i class="fas fa-info-circle"></i> Sobre</a></li>
+                    <li><a href="cardapio.html" class="nav-link"><i class="fas fa-coffee"></i> Cardápio</a></li>
+                    <li><a href="eventos.html" class="nav-link active"><i class="fas fa-calendar-alt"></i> Eventos</a>
+                    </li>
+                    <li><a href="avaliacoes.html" class="nav-link"><i class="fas fa-star"></i> Avaliações</a></li>
+                    <li><a href="contato.html" class="nav-link"><i class="fas fa-envelope"></i> Contato</a></li>
+                    <li>
+                        <a href="#" class="nav-link cart-icon" id="cart-toggle">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO DA PÁGINA EVENTOS -->
+    <section class="events-page">
+        <div class="container">
+            <div class="page-header">
+                <h1>Eventos & Atividades</h1>
+                <p class="page-description">Participe dos nossos eventos especiais! Oferecemos uma variedade de
+                    experiências únicas para os amantes de café e para quem busca momentos de descontração e
+                    aprendizado.</p>
+            </div>
+
+            <div class="events-tabs">
+                <button class="tab-btn active" data-tab="upcoming">Próximos Eventos</button>
+                <button class="tab-btn" data-tab="weekly">Eventos Semanais</button>
+                <button class="tab-btn" data-tab="past">Eventos Anteriores</button>
+            </div>
+
+            <!-- Próximos Eventos -->
+            <div class="tab-content active" id="upcoming">
+                <div class="events-grid">
+                    <div class="event-card">
+                        <div class="event-image">
+                            <img src="https://images.pexels.com/photos/19412263/pexels-photo-19412263.jpeg"
+                                alt="Noite de Jazz">
+                        </div>
+                        <div class="event-content">
+                            <span class="event-date">15 de Novembro • 19h</span>
+                            <h3>Noite de Jazz & Café</h3>
+                            <p>Desfrute de uma noite especial com música jazz ao vivo em um ambiente intimista,
+                                acompanhada de nossos melhores cafés e drinks especiais. Um momento perfeito para
+                                relaxar e socializar.</p>
+                            <div class="event-details">
+                                <div class="event-detail">
+                                    <i class="fas fa-users"></i>
+                                    <span>Vagas: 30</span>
+                                </div>
+                                <div class="event-price">R$ 25,00</div>
+                            </div>
+                            <button class="btn btn-gold event-rsvp" data-event="Noite de Jazz">Fazer Reserva</button>
+                        </div>
+                    </div>
+
+                    <div class="event-card">
+                        <div class="event-image">
+                            <img src="https://images.pexels.com/photos/4499395/pexels-photo-4499395.jpeg"
+                                alt="Workshop de Barista">
+                        </div>
+                        <div class="event-content">
+                            <span class="event-date">22 de Novembro • 14h</span>
+                            <h3>Workshop de Barista</h3>
+                            <p>Aprenda as técnicas básicas de preparo de café com nossos baristas profissionais. Inclui
+                                degustação de diferentes métodos e uma apostila preparada com muito carinho com
+                                informações exclusivas.</p>
+                            <div class="event-details">
+                                <div class="event-detail">
+                                    <i class="fas fa-users"></i>
+                                    <span>Vagas: 12</span>
+                                </div>
+                                <div class="event-price">R$ 80,00</div>
+                            </div>
+                            <button class="btn btn-gold event-rsvp" data-event="Workshop de Barista">Fazer
+                                Reserva</button>
+                        </div>
+                    </div>
+
+                    <div class="event-card">
+                        <div class="event-image">
+                            <img src="https://images.pexels.com/photos/31658739/pexels-photo-31658739.jpeg"
+                                alt="Degustação de Cafés">
+                        </div>
+                        <div class="event-content">
+                            <span class="event-date">29 de Novembro • 16h</span>
+                            <h3>Degustação de Cafés Especiais</h3>
+                            <p>Experimente uma seleção exclusiva de cafés de origem única, guiada por nossos
+                                especialistas. Uma jornada sensorial pelos sabores e aromas do melhor café da cidade.
+                            </p>
+                            <div class="event-details">
+                                <div class="event-detail">
+                                    <i class="fas fa-users"></i>
+                                    <span>Vagas: 15</span>
+                                </div>
+                                <div class="event-price">R$ 45,00</div>
+                            </div>
+                            <button class="btn btn-gold event-rsvp" data-event="Degustação de Cafés">Fazer
+                                Reserva</button>
+                        </div>
+                    </div>
+
+                    <div class="event-card">
+                        <div class="event-image">
+                            <img src="https://images.pexels.com/photos/33527474/pexels-photo-33527474.jpeg"
+                                alt="Workshop de Latte Art">
+                        </div>
+                        <div class="event-content">
+                            <span class="event-date">5 de Dezembro • 10h</span>
+                            <h3>Workshop de Latte Art</h3>
+                            <p>Aprenda a criar desenhos incríveis na espuma do café com nossos especialistas. Técnicas
+                                básicas e avançadas para transformar sua xícara em uma obra de arte.</p>
+                            <div class="event-details">
+                                <div class="event-detail">
+                                    <i class="fas fa-users"></i>
+                                    <span>Vagas: 8</span>
+                                </div>
+                                <div class="event-price">R$ 120,00</div>
+                            </div>
+                            <button class="btn btn-gold event-rsvp" data-event="Workshop de Latte Art">Fazer
+                                Reserva</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Eventos Semanais -->
+            <div class="tab-content" id="weekly">
+                <div class="events-grid">
+                    <div class="event-card">
+                        <div class="event-image">
+                            <img src="https://images.pexels.com/photos/9401772/pexels-photo-9401772.jpeg"
+                                alt="Jazz às Quintas">
+                        </div>
+                        <div class="event-content">
+                            <span class="event-date">Toda Quinta • 19h</span>
+                            <h3>Jazz & Blues Night</h3>
+                            <p>Toda quinta-feira temos música ao vivo com artistas locais. Ambiente descontraído, drinks
+                                especiais e petiscos exclusivos.</p>
+                            <div class="event-details">
+                                <div class="event-detail">
+                                    <i class="fas fa-music"></i>
+                                    <span>Entrada gratuita</span>
+                                </div>
+                                <div class="event-price">Consumação</div>
+                            </div>
+                            <button class="btn">Participar</button>
+                        </div>
+                    </div>
+
+                    <div class="event-card">
+                        <div class="event-image">
+                            <img src="https://images.pexels.com/photos/3278768/pexels-photo-3278768.jpeg"
+                                alt="Clube do Livro">
+                        </div>
+                        <div class="event-content">
+                            <span class="event-date">Toda Segunda • 18h</span>
+                            <h3>Clube do Livro & Café</h3>
+                            <p>Encontro semanal para discutir literatura enquanto degustamos cafés especiais. Traga seu
+                                livro favorito e venha conversar!</p>
+                            <div class="event-details">
+                                <div class="event-detail">
+                                    <i class="fas fa-book"></i>
+                                    <span>Participação livre</span>
+                                </div>
+                                <div class="event-price">Grátis</div>
+                            </div>
+                            <button class="btn">Participar</button>
+                        </div>
+                    </div>
+
+                    <div class="event-card">
+                        <div class="event-image">
+                            <img src="https://images.pexels.com/photos/31706937/pexels-photo-31706937.jpeg"
+                                alt="Brunch de Domingo">
+                        </div>
+                        <div class="event-content">
+                            <span class="event-date">Todo Domingo • 10h-14h</span>
+                            <h3>Brunch Especial</h3>
+                            <p>Nosso famoso brunch de domingo com buffet completo, cafés especiais, sucos naturais e
+                                ambiente familiar.</p>
+                            <div class="event-details">
+                                <div class="event-detail">
+                                    <i class="fas fa-utensils"></i>
+                                    <span>Reserva recomendada</span>
+                                </div>
+                                <div class="event-price">R$ 49,90</div>
+                            </div>
+                            <button class="btn btn-gold">Fazer Reserva</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Eventos Anteriores -->
+            <div class="tab-content" id="past">
+                <div class="no-events">
+                    <i class="fas fa-calendar-times"
+                        style="font-size: 3rem; margin-bottom: 20px; color: var(--accent-gold);"></i>
+                    <h3>Nenhum evento anterior no momento</h3>
+                    <p>Em breve disponibilizaremos fotos e informações sobre nossos eventos passados.</p>
+                </div>
+            </div>
+
+            <!-- Calendário de Eventos -->
+            <div class="events-calendar">
+                <h2>Calendário de Eventos</h2>
+                <div class="calendar-header">
+                    <h3>Novembro 2023</h3>
+                    <button class="btn btn-gold">Ver Todos</button>
+                </div>
+                <div class="calendar-grid">
+                    <div class="calendar-day">Dom</div>
+                    <div class="calendar-day">Seg</div>
+                    <div class="calendar-day">Ter</div>
+                    <div class="calendar-day">Qua</div>
+                    <div class="calendar-day">Qui</div>
+                    <div class="calendar-day">Sex</div>
+                    <div class="calendar-day">Sáb</div>
+
+                    <!-- Dias do mês -->
+                    <div class="calendar-date empty"></div>
+                    <div class="calendar-date empty"></div>
+                    <div class="calendar-date">1</div>
+                    <div class="calendar-date">2</div>
+                    <div class="calendar-date">3</div>
+                    <div class="calendar-date">4</div>
+                    <div class="calendar-date">5</div>
+                    <div class="calendar-date">6</div>
+                    <div class="calendar-date">7</div>
+                    <div class="calendar-date">8</div>
+                    <div class="calendar-date">9</div>
+                    <div class="calendar-date">10</div>
+                    <div class="calendar-date">11</div>
+                    <div class="calendar-date">12</div>
+                    <div class="calendar-date">13</div>
+                    <div class="calendar-date">14</div>
+                    <div class="calendar-date event-highlight">15</div>
+                    <div class="calendar-date">16</div>
+                    <div class="calendar-date">17</div>
+                    <div class="calendar-date">18</div>
+                    <div class="calendar-date">19</div>
+                    <div class="calendar-date">20</div>
+                    <div class="calendar-date">21</div>
+                    <div class="calendar-date event-highlight">22</div>
+                    <div class="calendar-date">23</div>
+                    <div class="calendar-date">24</div>
+                    <div class="calendar-date">25</div>
+                    <div class="calendar-date">26</div>
+                    <div class="calendar-date">27</div>
+                    <div class="calendar-date">28</div>
+                    <div class="calendar-date event-highlight">29</div>
+                    <div class="calendar-date">30</div>
+                    <div class="calendar-date empty"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de Reserva -->
+    <div class="event-modal" id="event-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Fazer Reserva</h3>
+                <button class="close-modal" id="close-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="modal-description">Preencha os dados abaixo para reservar sua vaga no evento.</p>
+                <div class="rsvp-form">
+                    <div class="form-group">
+                        <label for="name">Nome completo</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Telefone</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="guests">Número de pessoas</label>
+                        <input type="number" id="guests" min="1" max="10" value="1">
+                    </div>
+                    <button class="btn btn-gold" id="confirm-rsvp">Confirmar Reserva</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="logo">
+                        <div class="logo-img"><img class="logo-coffee" src="img/Logotipo do Coffee Hearth.png"
+                                alt="logo"></div>
+                        <h2 class="footer-logo">Coffee Hearth</h2>
+                    </div>
+                    <p>Há mais de 10 anos servindo os melhores cafés especiais em um ambiente aconchegante e acolhedor.
+                    </p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
+                        <li><a href="sobre.html"><i class="fas fa-info-circle"></i> Sobre Nós</a></li>
+                        <li><a href="cardapio.html"><i class="fas fa-coffee"></i> Cardápio</a></li>
+                        <li><a href="eventos.html"><i class="fas fa-calendar-alt"></i> Eventos</a></li>
+                        <li><a href="avaliacoes.html"><i class="fas fa-star"></i> Avaliações</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Eventos</h3>
+                    <ul class="footer-links">
+                        <li><a href="eventos.html#upcoming"><i class="fas fa-music"></i> Noite de Jazz</a></li>
+                        <li><a href="eventos.html#upcoming"><i class="fas fa-coffee"></i> Workshop de Barista</a></li>
+                        <li><a href="eventos.html#weekly"><i class="fas fa-book"></i> Clube do Livro</a></li>
+                        <li><a href="eventos.html#weekly"><i class="fas fa-utensils"></i> Brunch de Domingo</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Rua das Flores, 123 - Centro, São Paulo - SP</p>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-phone"></i>
+                        <p>(11) 3456-7890</p>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope"></i>
+                        <p>coffeehearth@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Coffee Hearth. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ===== HEADER SCROLL =====
+        const header = document.getElementById('header');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // ===== MENU HAMBURGUER =====
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.innerHTML = navMenu.classList.contains('active')
+                ? '<i class="fas fa-times"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // ===== SISTEMA DE ABAS =====
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remover classe active de todos os botões e conteúdos
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+
+                // Adicionar classe active ao botão clicado
+                btn.classList.add('active');
+
+                // Mostrar o conteúdo correspondente
+                const tabId = btn.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // ===== MODAL DE RESERVA =====
+        const eventModal = document.getElementById('event-modal');
+        const closeModal = document.getElementById('close-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalDescription = document.getElementById('modal-description');
+        const confirmRsvp = document.getElementById('confirm-rsvp');
+
+        document.querySelectorAll('.event-rsvp').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const eventName = this.getAttribute('data-event');
+                modalTitle.textContent = `Reserva: ${eventName}`;
+                modalDescription.textContent = `Preencha os dados abaixo para reservar sua vaga no evento "${eventName}".`;
+                eventModal.classList.add('active');
+            });
+        });
+
+        closeModal.addEventListener('click', () => {
+            eventModal.classList.remove('active');
+        });
+
+        confirmRsvp.addEventListener('click', () => {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const guests = document.getElementById('guests').value;
+
+            if (name && email && phone) {
+                alert(`Reserva confirmada para ${name}! Entraremos em contato pelo telefone ${phone} para confirmar os detalhes.`);
+                eventModal.classList.remove('active');
+
+                // Limpar formulário
+                document.getElementById('name').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('phone').value = '';
+                document.getElementById('guests').value = '1';
+            } else {
+                alert('Por favor, preencha todos os campos obrigatórios.');
+            }
+        });
+
+        // Fechar modal ao clicar fora
+        eventModal.addEventListener('click', (e) => {
+            if (e.target === eventModal) {
+                eventModal.classList.remove('active');
+            }
+        });
+
+        // ===== CARRINHO (simulação) =====
+        const cartToggle = document.getElementById('cart-toggle');
+        const cartCount = document.querySelector('.cart-count');
+
+        // Simular carrinho com itens
+        let cartItems = 0;
+
+        cartToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('Funcionalidade do carrinho será implementada em breve!');
+        });
+
+        // Atualizar contador do carrinho
+        function updateCartCount() {
+            cartCount.textContent = cartItems;
+        }
+
+        // Simular adição de itens ao carrinho
+        document.querySelectorAll('.btn-gold').forEach(btn => {
+            btn.addEventListener('click', function () {
+                if (!this.classList.contains('event-rsvp') && !this.id.includes('confirm')) {
+                    cartItems++;
+                    updateCartCount();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

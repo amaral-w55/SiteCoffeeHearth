@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliações - Coffee Hearth</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="img/Logotipo do Coffee Hearth.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --font-titulo: 'Playfair Display', serif;
+            --font-texto: 'Source Sans Pro', sans-serif;
+            --font-ui: 'Inter', sans-serif;
+            --dark-brown: #3C2A21;
+            --medium-brown: #5C3D2E;
+            --light-brown: #8B5A2B;
+            --accent-gold: #D4AF37;
+            --dark-gray: #2A2A2A;
+            --medium-gray: #4A4A4A;
+            --light-gray: #E0E0E0;
+            --white: #FFFFFF;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #cart-toggle {
+            margin-top: 5px;
+        }
+
+        /* ANIMAÇÕES SIMPLES - AVALIAÇÕES */
+        /* MÍNIMO ABSOLUTO */
+        section,
+        .card,
+        .item {
+            opacity: 0;
+            animation: aparecer 0.6s ease-out forwards;
+        }
+
+        @keyframes aparecer {
+            to {
+                opacity: 1;
+            }
+        }
+
+        section:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        section:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .card:nth-child(1) {
+            animation-delay: 0.3s;
+        }
+
+        .card:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-texto);
+            background-color: var(--dark-gray);
+            color: var(--light-gray);
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: var(--font-titulo);
+            color: var(--accent-gold);
+        }
+
+        p,
+        li,
+        span {
+            font-family: var(--font-texto);
+        }
+
+        button,
+        input,
+        label {
+            font-family: var(--font-ui);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            text-align: center;
+            position: relative;
+            margin-bottom: 50px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-gold);
+            border-radius: 2px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--light-brown);
+            color: var(--white);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-gold);
+            color: var(--dark-brown);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-gold {
+            background-color: var(--accent-gold);
+            color: var(--dark-brown);
+        }
+
+        .btn-gold:hover {
+            background-color: var(--light-brown);
+            color: var(--white);
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--dark-brown);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 5px 0;
+            background-color: rgba(60, 42, 33, 0.95);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 70px;
+            height: 70px;
+            background-color: var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-weight: bold;
+            color: var(--dark-brown);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+        }
+
+        .logo-img1 {
+            width: 70px;
+            height: 70px;
+            background-color: var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+            margin-right: 10px;
+            font-weight: bold;
+            color: var(--dark-brown);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+        }
+
+        .logo-coffee {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 10px;
+            transition: all 0.5s ease;
+        }
+
+        .logo-coffee:hover {
+            transform: scale(1.08);
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            margin: 0;
+            color: var(--white);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-left: 30px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--light-gray);
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu a i {
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--accent-gold);
+        }
+
+        .cart-icon {
+            position: relative;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--accent-gold);
+            color: var(--dark-brown);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--light-gray);
+        }
+
+        /* Reviews Page Styles */
+        .reviews-page {
+            padding-top: 120px;
+            background-color: var(--medium-gray);
+        }
+
+        .page-header {
+            margin-top: 50px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .page-description {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+
+        .overall-rating {
+            background-color: var(--dark-gray);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 50px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .rating-summary {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .average-rating {
+            text-align: center;
+        }
+
+        .rating-number {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            line-height: 1;
+        }
+
+        .rating-stars {
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+
+        .total-reviews {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .rating-bars {
+            flex: 1;
+            max-width: 400px;
+        }
+
+        .rating-bar {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .rating-label {
+            width: 80px;
+            font-size: 0.9rem;
+        }
+
+        .bar-container {
+            flex: 1;
+            height: 8px;
+            background-color: var(--medium-gray);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 0 10px;
+        }
+
+        .bar {
+            height: 100%;
+            background-color: var(--accent-gold);
+        }
+
+        .rating-count {
+            width: 30px;
+            text-align: right;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .review-card {
+            background-color: var(--dark-gray);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--medium-brown);
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            border-color: var(--accent-gold);
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .reviewer {
+            display: flex;
+            align-items: center;
+        }
+
+        .reviewer-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+            border: 2px solid var(--accent-gold);
+        }
+
+        .reviewer-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .reviewer-info h4 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .reviewer-info p {
+            color: #aaa;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .review-rating {
+            color: var(--accent-gold);
+        }
+
+        .review-text {
+            font-style: italic;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .review-text::before {
+            content: "";
+            font-size: 3rem;
+            color: var(--accent-gold);
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            opacity: 0.3;
+            font-family: Georgia, serif;
+        }
+
+        .review-date {
+            color: #aaa;
+            font-size: 0.8rem;
+            text-align: right;
+        }
+
+        .add-review-section {
+            background-color: var(--dark-gray);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .review-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .reviews-page p {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--medium-gray);
+            border: 1px solid var(--medium-brown);
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: var(--transition);
+            color: var(--light-gray);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .star-rating {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+
+        .star {
+            font-size: 1.5rem;
+            color: #555;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .star:hover,
+        .star.active {
+            color: var(--accent-gold);
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--dark-brown);
+            color: var(--light-gray);
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .logo h2 {
+            color: var(--accent-gold);
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .footer-column p {
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-links a i {
+            margin-right: 8px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--medium-brown);
+            color: var(--light-gray);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent-gold);
+            color: var(--dark-brown);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            border-top: 1px solid var(--medium-brown);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .rating-summary {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: var(--dark-brown);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                transition: var(--transition);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 15px 0;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .review-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .review-rating {
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <div class="logo-img1">
+                        <img class="logo-coffee" src="img/Logotipo do Coffee Hearth.png" alt="logo-img">
+                    </div>
+                </a>
+
+                <div class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Início</a></li>
+                    <li><a href="sobre.html" class="nav-link"><i class="fas fa-info-circle"></i>
+                            Sobre</a></li>
+                    <li><a href="cardapio.html" class="nav-link"><i class="fas fa-coffee"></i> Cardápio</a></li>
+                    <li><a href="eventos.html" class="nav-link"><i class="fas fa-calendar-alt"></i>
+                            Eventos</a></li>
+                    <li><a href="avaliacoes.html" class="nav-link active"><i class="fas fa-star"></i> Avaliações</a>
+                    </li>
+                    <li><a href="contato.html" class="nav-link"><i class="fas fa-envelope"></i>
+                            Contato</a></li>
+                    <li>
+                        <a href="#" class="nav-link cart-icon" id="cart-toggle">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO DA PÁGINA AVALIAÇÕES -->
+    <section class="reviews-page">
+        <div class="container">
+            <div class="page-header">
+                <h1>Avaliações dos Clientes</h1>
+                <p class="page-description">Confira o que nossos clientes
+                    estão dizendo sobre a experiência na Coffee Hearth.
+                    Sua opinião é muito importante para nós!</p>
+            </div>
+
+            <div class="overall-rating">
+                <div class="rating-summary">
+                    <div class="average-rating">
+                        <div class="rating-number">4.8</div>
+                        <div class="rating-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <div class="total-reviews">Baseado em 127
+                            avaliações</div>
+                    </div>
+
+                    <div class="rating-bars">
+                        <div class="rating-bar">
+                            <div class="rating-label">5 estrelas</div>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 85%;"></div>
+                            </div>
+                            <div class="rating-count">108</div>
+                        </div>
+                        <div class="rating-bar">
+                            <div class="rating-label">4 estrelas</div>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 12%;"></div>
+                            </div>
+                            <div class="rating-count">15</div>
+                        </div>
+                        <div class="rating-bar">
+                            <div class="rating-label">3 estrelas</div>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 2%;"></div>
+                            </div>
+                            <div class="rating-count">3</div>
+                        </div>
+                        <div class="rating-bar">
+                            <div class="rating-label">2 estrelas</div>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 1%;"></div>
+                            </div>
+                            <div class="rating-count">1</div>
+                        </div>
+                        <div class="rating-bar">
+                            <div class="rating-label">1 estrela</div>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 0%;"></div>
+                            </div>
+                            <div class="rating-count">0</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer">
+                            <div class="reviewer-avatar">
+                                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Maria Silva">
+                            </div>
+                            <div class="reviewer-info">
+                                <h4>Maria Silva</h4>
+                                <p>Cliente frequente</p>
+                            </div>
+                        </div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "O melhor café da cidade! Ambiente aconchegante e atendimento excelente. Recomendo o Latte Art
+                        Especial e o bolo de chocolate. Sempre que posso, venho aqui para trabalhar ou encontrar
+                        amigos."
+                    </div>
+                    <div class="review-date">Postado em 15 de Outubro,
+                        2023</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer">
+                            <div class="reviewer-avatar">
+                                <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="João Santos">
+                            </div>
+                            <div class="reviewer-info">
+                                <h4>João Santos</h4>
+                                <p>Cliente frequente</p>
+                            </div>
+                        </div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Adoro vir aqui para trabalhar. O Wi-Fi é rápido, o café é delicioso e os bolos são incríveis.
+                        Meu favorito é o de chocolate. A equipe é sempre muito atenciosa e o ambiente é perfeito para
+                        concentração."
+                    </div>
+                    <div class="review-date">Postado em 12 de Outubro,
+                        2023</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer">
+                            <div class="reviewer-avatar">
+                                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Ana Costa">
+                            </div>
+                            <div class="reviewer-info">
+                                <h4>Ana Costa</h4>
+                                <p>Cliente frequente</p>
+                            </div>
+                        </div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Perfeito para encontros com amigos. O ambiente é muito agradável e a equipe sempre muito
+                        atenciosa. Os cappuccinos são divinos! Já participei de dois workshops aqui e foram experiências
+                        incríveis."
+                    </div>
+                    <div class="review-date">Postado em 8 de Outubro,
+                        2023</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer">
+                            <div class="reviewer-avatar">
+                                <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Pedro Almeida">
+                            </div>
+                            <div class="reviewer-info">
+                                <h4>Pedro Almeida</h4>
+                                <p>Primeira visita</p>
+                            </div>
+                        </div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Fui pela primeira vez hoje e já me tornei fã! O espresso é perfeito, encorpado e com a crema no
+                        ponto certo. O croissant de presunto e queijo estava quentinho e crocante. Voltarei com
+                        certeza!"
+                    </div>
+                    <div class="review-date">Postado em 5 de Outubro,
+                        2023</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer">
+                            <div class="reviewer-avatar">
+                                <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Carla Mendes">
+                            </div>
+                            <div class="reviewer-info">
+                                <h4>Carla Mendes</h4>
+                                <p>Cliente frequente</p>
+                            </div>
+                        </div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Amo o brunch de domingo! Variedade incrível, tudo muito fresco e saboroso. O ambiente familiar
+                        é perfeito para reunir a família. Meus filhos adoram os cookies de chocolate. Recomendo muito!"
+                    </div>
+                    <div class="review-date">Postado em 1 de Outubro,
+                        2023</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer">
+                            <div class="reviewer-avatar">
+                                <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Ricardo Oliveira">
+                            </div>
+                            <div class="reviewer-info">
+                                <h4>Ricardo Oliveira</h4>
+                                <p>Cliente frequente</p>
+                            </div>
+                        </div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Participei do workshop de barista e foi uma experiência fantástica! Aprendi muito sobre métodos
+                        de preparo e degustação. Os instrutores são muito competentes e pacientes. Já estou ansioso pelo
+                        próximo evento!"
+                    </div>
+                    <div class="review-date">Postado em 28 de Setembro,
+                        2023</div>
+                </div>
+            </div>
+
+            <div class="add-review-section">
+                <h2>Deixe sua Avaliação</h2>
+                <p>Compartilhe sua experiência conosco! Sua opinião ajuda
+                    outros clientes e nos motiva a sempre melhorar.</p>
+
+                <form class="review-form" id="review-form">
+                    <div class="form-group">
+                        <label for="reviewer-name">Seu Nome</label>
+                        <input type="text" id="reviewer-name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reviewer-email">Seu E-mail</label>
+                        <input type="email" id="reviewer-email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <p>Sua Avaliação</p>
+                        <div class="star-rating" id="star-rating">
+                            <span class="star" data-rating="1"><i class="far fa-star"></i></span>
+                            <span class="star" data-rating="2"><i class="far fa-star"></i></span>
+                            <span class="star" data-rating="3"><i class="far fa-star"></i></span>
+                            <span class="star" data-rating="4"><i class="far fa-star"></i></span>
+                            <span class="star" data-rating="5"><i class="far fa-star"></i></span>
+                        </div>
+                        <input type="hidden" id="rating-value" value="0">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="review-title">Título da
+                            Avaliação</label>
+                        <input type="text" id="review-title" placeholder="Ex: Experiência Incrível!">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="review-text">Sua Avaliação</label>
+                        <textarea id="review-text" placeholder="Conte-nos sobre sua experiência..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-gold">Enviar
+                        Avaliação</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="logo">
+                        <div class="logo-img"><img class="logo-coffee" src="img/Logotipo do Coffee Hearth.png"
+                                alt="logo"></div>
+                        <h2 class="footer-logo">Coffee Hearth</h2>
+                    </div>
+                    <p>Há mais de 10 anos servindo os melhores cafés
+                        especiais em um ambiente aconchegante e
+                        acolhedor.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-home"></i>
+                                Início</a></li>
+                        <li><a href="sobre.html"><i class="fas fa-info-circle"></i> Sobre
+                                Nós</a></li>
+                        <li><a href="cardapio.html"><i class="fas fa-coffee"></i>
+                                Cardápio</a></li>
+                        <li><a href="eventos.html"><i class="fas fa-calendar-alt"></i>
+                                Eventos</a></li>
+                        <li><a href="avaliacoes.html"><i class="fas fa-star"></i>
+                                Avaliações</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Cardápio</h3>
+                    <ul class="footer-links">
+                        <li><a href="cardapio.html#cafes"><i class="fas fa-mug-hot"></i> Cafés
+                                Especiais</a></li>
+                        <li><a href="cardapio.html#bebidas"><i class="fas fa-beer"></i>
+                                Bebidas</a></li>
+                        <li><a href="cardapio.html#doces"><i class="fas fa-cookie"></i>
+                                Doces</a></li>
+                        <li><a href="cardapio.html#salgados"><i class="fas fa-bread-slice"></i>
+                                Salgados</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Rua das Flores, 123 - Centro, São Paulo - SP</p>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-phone"></i>
+                        <p>(11) 3456-7890</p>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope"></i>
+                        <p>coffeehearth@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Coffee Hearth. Todos os direitos
+                    reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ===== HEADER SCROLL =====
+        const header = document.getElementById('header');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // ===== MENU HAMBURGUER =====
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.innerHTML = navMenu.classList.contains('active')
+                ? '<i class="fas fa-times"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // ===== SISTEMA DE AVALIAÇÃO POR ESTRELAS =====
+        const stars = document.querySelectorAll('.star');
+        const ratingValue = document.getElementById('rating-value');
+
+        // Função para atualizar as estrelas baseada na avaliação atual
+        function updateStars(rating) {
+            stars.forEach(s => {
+                const sRating = s.getAttribute('data-rating');
+                if (sRating <= rating) {
+                    // Estrela SOLIDA preenchida + cor dourada
+                    s.innerHTML = '<i class="fas fa-star"></i>';
+                    s.style.color = '#FFD700';
+                    s.classList.add('active');
+                } else {
+                    // Estrela VAZIA + cor cinza
+                    s.innerHTML = '<i class="far fa-star"></i>';
+                    s.style.color = '#ccc';
+                    s.classList.remove('active');
+                }
+            });
+        }
+
+        stars.forEach(star => {
+            star.addEventListener('click', function () {
+                const rating = this.getAttribute('data-rating');
+                ratingValue.value = rating;
+
+                // Atualiza TODAS as estrelas baseada no clique
+                updateStars(rating);
+            });
+
+            // Efeito hover - APENAS visual temporário, não altera o estado real
+            star.addEventListener('mouseover', function () {
+                const rating = this.getAttribute('data-rating');
+
+                stars.forEach(s => {
+                    const sRating = s.getAttribute('data-rating');
+                    if (sRating <= rating) {
+                        s.style.color = '#FFD700'; // Apenas muda a cor no hover
+                    } else {
+                        s.style.color = '#ccc';
+                    }
+                });
+            });
+
+            // Quando o mouse sai, volta para o estado real (baseado no clique)
+            star.addEventListener('mouseout', function () {
+                const currentRating = ratingValue.value;
+                updateStars(currentRating); // Volta para a avaliação real selecionada
+            });
+        });
+
+        // Inicializa com 0 estrelas selecionadas
+        updateStars(0);
+
+        // ===== ENVIO DE AVALIAÇÃO =====
+        const reviewForm = document.getElementById('review-form');
+
+        reviewForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('reviewer-name').value;
+            const email = document.getElementById('reviewer-email').value;
+            const rating = ratingValue.value;
+            const title = document.getElementById('review-title').value;
+            const text = document.getElementById('review-text').value;
+
+            if (name && email && rating > 0 && text) {
+                alert('Avaliação enviada com sucesso! Obrigado por compartilhar sua experiência.');
+                reviewForm.reset();
+
+                // Reset stars
+                stars.forEach(s => {
+                    s.innerHTML = '<i class="far fa-star"></i>';
+                    s.classList.remove('active');
+                });
+                ratingValue.value = '0';
+            } else {
+                alert('Por favor, preencha todos os campos obrigatórios e dê uma avaliação com estrelas.');
+            }
+        });
+
+        // ===== CARRINHO (simulação) =====
+        const cartToggle = document.getElementById('cart-toggle');
+        const cartCount = document.querySelector('.cart-count');
+
+        // Simular carrinho com itens
+        let cartItems = 0;
+
+        cartToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('O carrinho está vazio, por favor adicione algo!');
+        });
+
+        // Atualizar contador do carrinho
+        function updateCartCount() {
+            cartCount.textContent = cartItems;
+        }
+    </script>
+</body>
+
+</html>

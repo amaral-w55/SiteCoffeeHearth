@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sobre Nós - Coffee Hearth</title>
+        <link rel="shortcut icon" href="img/Logotipo do Coffee Hearth.png" type="image/x-icon">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap"
+            rel="stylesheet">
+        <style>
+                :root {
+            --font-titulo: 'Playfair Display', serif;
+            --font-texto: 'Source Sans Pro', sans-serif;
+            --font-ui: 'Inter', sans-serif;
+            --dark-brown: #3C2A21;
+            --medium-brown: #5C3D2E;
+            --light-brown: #8B5A2B;
+            --accent-gold: #D4AF37;
+            --dark-gray: #2A2A2A;
+            --medium-gray: #4A4A4A;
+            --light-gray: #E0E0E0;
+            --white: #FFFFFF;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            --transition: all 0.3s ease;
+        }
+
+        html{
+            scroll-behavior: smooth;
+        }
+
+        #cart-toggle {
+            margin-top: 5px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-texto);
+            background-color: var(--dark-gray);
+            color: var(--light-gray);
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: var(--font-titulo);
+            color: var(--accent-gold);
+        }
+
+        p,
+        li,
+        span {
+            font-family: var(--font-texto);
+        }
+
+        button,
+        input,
+        label {
+            font-family: var(--font-ui);
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .about-image{
+            margin-bottom: 25px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            text-align: center;
+            position: relative;
+            margin-bottom: 50px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-gold);
+            border-radius: 2px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--light-brown);
+            color: var(--white);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-gold);
+            color: var(--dark-brown);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-gold {
+            background-color: var(--accent-gold);
+            color: var(--dark-brown);
+        }
+
+        .btn-gold:hover {
+            background-color: var(--light-brown);
+            color: var(--white);
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--dark-brown);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 5px 0;
+            background-color: rgba(60, 42, 33, 0.95);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 70px;
+            height: 70px;
+            background-color: var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-weight: bold;
+            color: var(--dark-brown);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+        }
+
+        .logo-img1 {
+            width: 70px;
+            height: 70px;
+            background-color: var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+            margin-right: 10px;
+            font-weight: bold;
+            color: var(--dark-brown);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+        }
+
+        .logo-coffee{
+            width: 70px;
+            height: 70px;
+            margin-bottom: 10px;
+            transition:all 0.5s ease;
+        }
+
+        .logo-coffee:hover{
+            transform: scale(1.08);
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            margin: 0;
+            color: var(--white);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-left: 30px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--light-gray);
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu a i {
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--accent-gold);
+        }
+
+        .cart-icon {
+            position: relative;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--accent-gold);
+            color: var(--dark-brown);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--light-gray);
+        }
+
+        /* About Page Styles */
+        .about-page {
+            padding-top: 120px;
+            background-color: var(--medium-gray);
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .page-description {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 80px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .feature {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .feature i {
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            position: relative;
+            border: 3px solid var(--accent-gold);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .value-item {
+            background-color: var(--dark-gray);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--medium-brown);
+        }
+
+        .value-item:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-gold);
+        }
+
+        .value-item i {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+        }
+
+        .value-item h4 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .team-section {
+            margin-top: 80px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .team-member {
+            background-color: var(--dark-gray);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--medium-brown);
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-gold);
+        }
+
+        .member-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 3px solid var(--accent-gold);
+        }
+
+        .member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .team-member h4 {
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .team-member p {
+            color: #aaa;
+            margin-bottom: 15px;
+        }
+
+        .stats-section {
+            background-color: var(--dark-gray);
+            border-radius: 10px;
+            padding: 50px;
+            margin: 80px 0;
+            box-shadow: var(--shadow);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            color: var(--accent-gold);
+            margin-bottom: 10px;
+        }
+
+        .stat-item p {
+            color: #ccc;
+            font-weight: 600;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--dark-brown);
+            color: var(--light-gray);
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+       .logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .logo h2 {
+            color: var(--accent-gold);
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .footer-column p {
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-links a i {
+            margin-right: 8px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--medium-brown);
+            color: var(--light-gray);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent-gold);
+            color: var(--dark-brown);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            border-top: 1px solid var(--medium-brown);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .values-grid,
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: var(--dark-brown);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                transition: var(--transition);
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu li {
+                margin: 15px 0;
+            }
+
+            .values-grid,
+            .team-grid,
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-section {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+    </head>
+    <body>
+        <!-- HEADER -->
+        <header id="header">
+            <div class="container">
+                <div class="header-content">
+                    <a href="index.html" class="logo">
+                        <div class="logo-img1">
+                            <img class="logo-coffee" src="img/Logotipo do Coffee Hearth.png" alt="logo-img">
+                        </div>
+                    </a>
+
+                    <div class="hamburger" id="hamburger">
+                        <i class="fas fa-bars"></i>
+                    </div>
+
+                    <ul class="nav-menu" id="nav-menu">
+                        <li><a href="index.html" class="nav-link"><i
+                                    class="fas fa-home"></i> Início</a></li>
+                        <li><a href="sobre.html" class="nav-link active"><i
+                                    class="fas fa-info-circle"></i>
+                                Sobre</a></li>
+                        <li><a href="cardapio.html" class="nav-link"><i
+                                    class="fas fa-coffee"></i> Cardápio</a></li>
+                        <li><a href="eventos.html" class="nav-link"><i
+                                    class="fas fa-calendar-alt"></i>
+                                Eventos</a></li>
+                        <li><a href="avaliacoes.html" class="nav-link"><i
+                                    class="fas fa-star"></i> Avaliações</a></li>
+                        <li><a href="contato.html" class="nav-link"><i
+                                    class="fas fa-envelope"></i>
+                                Contato</a></li>
+                        <li>
+                            <a href="#" class="nav-link cart-icon"
+                                id="cart-toggle">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span class="cart-count">0</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <!-- CONTEÚDO DA PÁGINA SOBRE -->
+        <section class="about-page">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Nossa História</h1>
+                    <p class="page-description">Conheça a trajetória da
+                        Coffee Hearth, nossa paixão pelo café e o
+                        compromisso com a excelência que nos move há mais de uma
+                        década.</p>
+                </div>
+
+                <div class="about-content">
+                    <div class="about-text fade-in">
+                        <p>Fundada em 2012 por dois amigos apaixonados por café,
+                            a Coffee Hearth nasceu do sonho de criar um
+                            espaço onde as pessoas pudessem desfrutar de cafés
+                            especiais em um ambiente acolhedor e inspirador.</p>
+
+                        <h3>Nossa Missão</h3>
+                        <p>Oferecer a melhor experiência em café, unindo
+                            qualidade excepcional, atendimento personalizado e
+                            um ambiente que promova conexões genuínas entre as
+                            pessoas.</p>
+
+                        <h3>Nossa Filosofia</h3>
+                        <p>Acreditamos que o café vai além de uma simples bebida
+                            - é um momento de pausa, uma desculpa para
+                            encontros, uma fonte de inspiração. Por isso,
+                            dedicamos atenção especial a cada etapa do processo,
+                            desde a seleção dos grãos até o preparo final.</p>
+
+                        <div class="about-features">
+                            <div class="feature">
+                                <i class="fas fa-seedling"></i>
+                                <div>
+                                    <h4>Sustentabilidade</h4>
+                                    <p>Trabalhamos com produtores que praticam
+                                        agricultura sustentável e pagam preços
+                                        justos pelos grãos.</p>
+                                </div>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-heart"></i>
+                                <div>
+                                    <h4>Paixão</h4>
+                                    <p>Cada xícara é preparada com dedicação e
+                                        amor, refletindo nossa paixão pelo café
+                                        de qualidade.</p>
+                                </div>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-users"></i>
+                                <div>
+                                    <h4>Comunidade</h4>
+                                    <p>Valorizamos as conexões humanas e criamos
+                                        um espaço onde todos se sintam
+                                        bem-vindos.</p>
+                                </div>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-award"></i>
+                                <div>
+                                    <h4>Excelência</h4>
+                                    <p>Buscamos constantemente a perfeição em
+                                        cada detalhe, do grão à xícara.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <img
+                            src="https://images.pexels.com/photos/2253643/pexels-photo-2253643.jpeg"
+                            alt="Nossa equipe">
+                    </div>
+                </div>
+
+                <div class="values-grid">
+                    <div class="value-item fade-in">
+                        <i class="fas fa-coffee"></i>
+                        <h4>Qualidade Superior</h4>
+                        <p>Selecionamos apenas os melhores grãos de regiões
+                            produtoras especiais, com torra artesanal que realça
+                            sabores únicos.</p>
+                    </div>
+                    <div class="value-item fade-in">
+                        <i class="fas fa-handshake"></i>
+                        <h4>Atendimento Personalizado</h4>
+                        <p>Nossa equipe é treinada para oferecer uma experiência
+                            única e memorável a cada cliente.</p>
+                    </div>
+                    <div class="value-item fade-in">
+                        <i class="fas fa-leaf"></i>
+                        <h4>Compromisso Ambiental</h4>
+                        <p>Utilizamos embalagens biodegradáveis e apoiamos
+                            práticas sustentáveis em toda nossa cadeia.</p>
+                    </div>
+                    <div class="value-item fade-in">
+                        <i class="fas fa-gem"></i>
+                        <h4>Excelência em Detalhes</h4>
+                        <p>Da apresentação ao sabor, cada aspecto é
+                            cuidadosamente planejado para sua satisfação.</p>
+                    </div>
+                </div>
+
+                <div class="stats-section fade-in">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <h3>10+</h3>
+                            <p>Anos de Experiência</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>5000+</h3>
+                            <p>Clientes Satisfeitos</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>15+</h3>
+                            <p>Tipos de Café Especial</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>50+</h3>
+                            <p>Eventos Realizados</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-section">
+                    <h2>Nossa Equipe</h2>
+                    <div class="team-grid">
+                        <div class="team-member fade-in">
+                            <div class="member-photo">
+                                <img
+                                    src="https://randomuser.me/api/portraits/men/32.jpg"
+                                    alt="Carlos Silva">
+                            </div>
+                            <h4>Carlos Silva</h4>
+                            <p>Fundador & Barista Mestre</p>
+                            <p>Com 15 anos de experiência, Carlos é especialista
+                                em torra e blends exclusivos. Sua paixão pelo
+                                café o levou a viajar por regiões produtoras ao
+                                redor do mundo.</p>
+                        </div>
+                        <div class="team-member fade-in">
+                            <div class="member-photo">
+                                <img
+                                    src="https://randomuser.me/api/portraits/women/44.jpg"
+                                    alt="Ana Costa">
+                            </div>
+                            <h4>Ana Costa</h4>
+                            <p>Co-fundadora & Sommelier de Café</p>
+                            <p>Ana viaja pelo mundo em busca dos melhores grãos
+                                para nossa cafeteria. Com formação em
+                                gastronomia, ela cria combinações únicas de
+                                sabores.</p>
+                        </div>
+                        <div class="team-member fade-in">
+                            <div class="member-photo">
+                                <img
+                                    src="https://randomuser.me/api/portraits/men/67.jpg"
+                                    alt="Roberto Lima">
+                            </div>
+                            <h4>Roberto Lima</h4>
+                            <p>Chef de Confeitaria</p>
+                            <p>Responsável por criar nossas deliciosas
+                                sobremesas e acompanhamentos. Com formação na
+                                França, Roberto traz técnicas europeias com
+                                toque brasileiro.</p>
+                        </div>
+                        <div class="team-member fade-in">
+                            <div class="member-photo">
+                                <img
+                                    src="https://randomuser.me/api/portraits/women/28.jpg"
+                                    alt="Juliana Santos">
+                            </div>
+                            <h4>Juliana Santos</h4>
+                            <p>Gerente de Experiência</p>
+                            <p>Juliana garante que cada visita à nossa cafeteria
+                                seja memorável. Especialista em atendimento e
+                                organização de eventos especiais.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 50px;">
+                    <a href="contato.html" class="btn btn-gold">Entre em
+                        Contato</a>
+                    <a href="cardapio.html" class="btn"
+                        style="margin-left: 15px;">Conheça Nosso Cardápio</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-column">
+                            <div class="logo">
+                                <div class="logo-img"><img class="logo-coffee" src="img/Logotipo do Coffee Hearth.png" alt="logo"></div>
+                                <h2 class="footer-logo">Coffee Hearth</h2>
+                            </div>
+                        <p>Há mais de 10 anos servindo os melhores cafés
+                            especiais em um ambiente aconchegante e
+                            acolhedor.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="footer-column">
+                        <h3>Links Rápidos</h3>
+                        <ul class="footer-links">
+                            <li><a href="index.html"><i class="fas fa-home"></i>
+                                    Início</a></li>
+                            <li><a href="sobre.html"><i
+                                        class="fas fa-info-circle"></i> Sobre
+                                    Nós</a></li>
+                            <li><a href="cardapio.html"><i
+                                        class="fas fa-coffee"></i>
+                                    Cardápio</a></li>
+                            <li><a href="eventos.html"><i
+                                        class="fas fa-calendar-alt"></i>
+                                    Eventos</a></li>
+                            <li><a href="avaliacoes.html"><i
+                                        class="fas fa-star"></i>
+                                    Avaliações</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h3>Cardápio</h3>
+                        <ul class="footer-links">
+                            <li><a href="cardapio.html"><i
+                                        class="fas fa-mug-hot"></i> Cafés
+                                    Especiais</a></li>
+                            <li><a href="cardapio.html"><i
+                                        class="fas fa-beer"></i>
+                                    Bebidas</a></li>
+                            <li><a href="cardapio.html"><i
+                                        class="fas fa-cookie"></i>
+                                    Doces</a></li>
+                            <li><a href="cardapio.html"><i
+                                        class="fas fa-bread-slice"></i>
+                                    Salgados</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h3>Contato</h3>
+                        <div class="contact-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>Rua das Flores, 123 - Centro, São Paulo - SP</p>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-phone"></i>
+                            <p>(11) 3456-7890</p>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-envelope"></i>
+                            <p>coffeehearth@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2023 Coffee Hearth. Todos os direitos
+                        reservados.</p>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+        // ===== HEADER SCROLL =====
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // ===== MENU HAMBURGUER =====
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // ===== ANIMAÇÕES AO SCROLLAR =====
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        function checkFade() {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', checkFade);
+        window.addEventListener('load', checkFade);
+
+        // ===== CARRINHO (simulação) =====
+        const cartToggle = document.getElementById('cart-toggle');
+        const cartCount = document.querySelector('.cart-count');
+        
+        // Simular carrinho com itens
+        let cartItems = 0;
+        
+        cartToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('Funcionalidade do carrinho será implementada em breve!');
+        });
+        
+        // Atualizar contador do carrinho
+        function updateCartCount() {
+            cartCount.textContent = cartItems;
+        }
+    </script>
+    </body>
+</html>
