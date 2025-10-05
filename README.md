@@ -1,3 +1,5 @@
+ALERTA - SITE FICTICIO
+
 ☕ Coffee Hearth
 Café que Aquece o CORAÇÃO
 
@@ -54,9 +56,6 @@ coffee-hearth/
 ├── contato.html        # Contato
 └── img/               # Imagens
     └── Logotipo do Coffee Hearth.png
-🚀 Como Usar
-Clique no link abaixo👇
-amaral-w55.github.io/SiteCoffeeHearth/
 
 Explore as funcionalidades:
 
@@ -76,5 +75,7 @@ Telefone: (11) 3456-7890
 Endereço: Rua das Flores, 123 - Centro, São Paulo - SP
 
 Desenvolvido com ❤️ e ☕ para amantes de café
+
+
 
 
