@@ -768,6 +768,137 @@
                 gap: 10px;
             }
         }
+
+        /* ===== RESPONSIVIDADE ===== */
+
+        /* Tablet (768px - 992px) */
+        @media (max-width: 992px) {
+            .events-highlight {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+
+            .event-content {
+                padding: 20px;
+            }
+
+            .event-content h3 {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Mobile Large (576px - 768px) */
+        @media (max-width: 768px) {
+            .events {
+                padding: 40px 0;
+            }
+
+            .events-highlight {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                max-width: 500px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .event {
+                margin-bottom: 10px;
+            }
+
+            .event-image {
+                height: 180px;
+            }
+
+            .event-content {
+                padding: 20px;
+            }
+
+            .event-content h3 {
+                font-size: 1.3rem;
+            }
+
+            .event-date {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
+        }
+
+        /* Mobile Small (até 576px) */
+        @media (max-width: 576px) {
+            .events {
+                padding: 30px 0;
+            }
+
+            .events-highlight {
+                gap: 15px;
+            }
+
+            .event-image {
+                height: 160px;
+            }
+
+            .event-content {
+                padding: 15px;
+            }
+
+            .event-content h3 {
+                font-size: 1.2rem;
+                margin-bottom: 10px;
+            }
+
+            .event-content p {
+                font-size: 0.9rem;
+                margin-bottom: 15px;
+            }
+
+            .event-date {
+                font-size: 0.75rem;
+                margin-bottom: 10px;
+            }
+
+            .event .btn {
+                padding: 10px 15px;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Mobile Muito Pequeno (até 400px) */
+        @media (max-width: 400px) {
+            .events-highlight {
+                grid-template-columns: 1fr;
+            }
+
+            .event-image {
+                height: 140px;
+            }
+
+            .event-content {
+                padding: 12px;
+            }
+
+            .event-content h3 {
+                font-size: 1.1rem;
+            }
+
+            .event-content p {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Orientação Landscape em Mobile */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .events {
+                padding: 30px 0;
+            }
+
+            .event-image {
+                height: 120px;
+            }
+
+            .event-content {
+                padding: 15px;
+            }
+        }
     </style>
 </head>
 
