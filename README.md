@@ -1,5 +1,4 @@
 ☕ Coffee Hearth - Café que Aquece o Coração
-https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg
 
 Uma experiência acolhedora em café especial, onde cada xícara conta uma história
 
